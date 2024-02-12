@@ -2,10 +2,10 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "sFireMarioFall",
-  "bbox_bottom": 30,
+  "bbox_bottom": 31,
   "bbox_left": 0,
   "bbox_right": 15,
-  "bbox_top": 2,
+  "bbox_top": 6,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"ca5e4356-024d-4137-b8d0-8cb3c8ffb872",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"689fb2fc-c3f1-4e1c-8741-c092289087b9",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 32,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"3d602160-af98-4004-abe7-23503b7e5790","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"3a8bad17-25cc-4d50-853e-94578eaeb900","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 7,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"ca5e4356-024d-4137-b8d0-8cb3c8ffb872","path":"sprites/sFireMarioFall/sFireMarioFall.yy",},},},"Disabled":false,"id":"96a52f99-facd-4ce8-8eb2-a12f1af395c4","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"689fb2fc-c3f1-4e1c-8741-c092289087b9","path":"sprites/sFireMarioFall/sFireMarioFall.yy",},},},"Disabled":false,"id":"722280f6-2b66-494c-a53a-0b1eaea62742","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

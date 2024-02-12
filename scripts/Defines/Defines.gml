@@ -1,3 +1,20 @@
+// Constants
 #macro GRAVITY 0.15
 #macro COYOTE 5
 #macro JUMP_BUFFER 8
+
+// Enums
+enum ITEM {
+	MUSHROOM,
+	FIREFLOWER,
+	LEAF,
+	HAMMERSUIT,
+	ONEUP
+}
+
+enum POWER {
+	MARIOMUSH,
+	MARIOFIRE,
+	MARIOLEAF,
+	MARIOHAMMER
+}

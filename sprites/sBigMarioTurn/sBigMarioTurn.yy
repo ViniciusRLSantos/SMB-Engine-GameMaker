@@ -5,7 +5,7 @@
   "bbox_bottom": 31,
   "bbox_left": 0,
   "bbox_right": 15,
-  "bbox_top": 3,
+  "bbox_top": 4,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9e964dd2-0373-475f-9f2c-aacb645b9abe",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"7f49354c-8a26-447f-bf51-21d77d261962",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 32,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"7b26feec-f309-4e34-ae33-2bf7acdad777","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"6c4413da-61cc-48ca-bcf8-eaf3ef2078b6","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 7,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"9e964dd2-0373-475f-9f2c-aacb645b9abe","path":"sprites/sBigMarioTurn/sBigMarioTurn.yy",},},},"Disabled":false,"id":"75f07bde-eb04-4d82-876b-0d5b42890565","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"7f49354c-8a26-447f-bf51-21d77d261962","path":"sprites/sBigMarioTurn/sBigMarioTurn.yy",},},},"Disabled":false,"id":"bcb8d877-0cf0-4d3a-aca3-57f84ab68b11","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

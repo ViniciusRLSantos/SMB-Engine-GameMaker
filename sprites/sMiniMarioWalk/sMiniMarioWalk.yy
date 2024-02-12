@@ -5,7 +5,7 @@
   "bbox_bottom": 23,
   "bbox_left": 1,
   "bbox_right": 15,
-  "bbox_top": 3,
+  "bbox_top": 8,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,15 +13,15 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"88dc0535-b0b1-4a36-a634-3aa9e8410d46",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e859637f-dfd7-4e50-be44-ea2ee288b912",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"56f11ec8-7efc-432e-95ad-8239524b5d98",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"a8e8ea89-1ec3-4016-8681-4aa87e64fb7f",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 24,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"5d119522-7292-4aab-99b1-94cd6376ebc4","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"70b2a55a-0988-4f7b-a7ee-a9b60c8880a1","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 7,
@@ -55,8 +55,8 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"88dc0535-b0b1-4a36-a634-3aa9e8410d46","path":"sprites/sMiniMarioWalk/sMiniMarioWalk.yy",},},},"Disabled":false,"id":"c5ba0211-d5eb-49e5-940f-73424d20ab7c","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e859637f-dfd7-4e50-be44-ea2ee288b912","path":"sprites/sMiniMarioWalk/sMiniMarioWalk.yy",},},},"Disabled":false,"id":"467e52db-a22e-42db-bd8d-a59e3385b4fc","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"56f11ec8-7efc-432e-95ad-8239524b5d98","path":"sprites/sMiniMarioWalk/sMiniMarioWalk.yy",},},},"Disabled":false,"id":"30ed666d-d8e7-4478-af3b-11f8c5e9416e","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"a8e8ea89-1ec3-4016-8681-4aa87e64fb7f","path":"sprites/sMiniMarioWalk/sMiniMarioWalk.yy",},},},"Disabled":false,"id":"44b94a64-72b2-4ab4-8483-c75d0799dae2","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

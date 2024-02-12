@@ -5,7 +5,7 @@
   "bbox_bottom": 31,
   "bbox_left": 0,
   "bbox_right": 15,
-  "bbox_top": 1,
+  "bbox_top": 6,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,7 +13,7 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9219eecb-4fd1-4f1f-9f22-49e27b3dbd14",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9738b38c-3bcd-4344-820b-5c32f39efdd0",},
   ],
   "gridX": 0,
   "gridY": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"9219eecb-4fd1-4f1f-9f22-49e27b3dbd14","path":"sprites/sBigMarioJump/sBigMarioJump.yy",},},},"Disabled":false,"id":"d3ed69d8-05bf-48a2-9057-db5e0849a9cc","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"9738b38c-3bcd-4344-820b-5c32f39efdd0","path":"sprites/sBigMarioJump/sBigMarioJump.yy",},},},"Disabled":false,"id":"6072e3e5-3789-43e6-bba7-a4cc339fbf51","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

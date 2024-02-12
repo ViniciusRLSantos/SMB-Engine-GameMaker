@@ -3,9 +3,9 @@
   "resourceVersion": "1.0",
   "name": "sFireMarioCrouch",
   "bbox_bottom": 31,
-  "bbox_left": 0,
-  "bbox_right": 15,
-  "bbox_top": 17,
+  "bbox_left": 1,
+  "bbox_right": 14,
+  "bbox_top": 14,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"59e12249-3823-4240-927e-89d9d439aa47",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"9737edcf-0cbc-40fd-b1c0-1bc5ff55cfd2",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 32,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"24d79825-443d-4235-a2b4-ab85fc0b34ef","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a48e53f7-f35e-4404-bd4f-9b21cb56460c","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 7,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"59e12249-3823-4240-927e-89d9d439aa47","path":"sprites/sFireMarioCrouch/sFireMarioCrouch.yy",},},},"Disabled":false,"id":"61c7a9e9-4ee9-4318-82f0-01f4e72aa5e1","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"9737edcf-0cbc-40fd-b1c0-1bc5ff55cfd2","path":"sprites/sFireMarioCrouch/sFireMarioCrouch.yy",},},},"Disabled":false,"id":"d996a566-a57a-4eed-96da-8d1c86f3fc5c","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

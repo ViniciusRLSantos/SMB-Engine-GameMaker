@@ -4,8 +4,8 @@
   "name": "sMiniMarioTurn",
   "bbox_bottom": 23,
   "bbox_left": 1,
-  "bbox_right": 15,
-  "bbox_top": 3,
+  "bbox_right": 14,
+  "bbox_top": 8,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d826138a-2e82-46ae-870d-a981c5ac3ead",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"33402863-22c5-4f4c-98ad-d74c9bf34646",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 24,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"49d79ec6-7f7b-4ca4-ad23-c65760da811f","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"23a9302a-bf2f-4fed-bf25-3528a7c782d1","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 7,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"d826138a-2e82-46ae-870d-a981c5ac3ead","path":"sprites/sMiniMarioTurn/sMiniMarioTurn.yy",},},},"Disabled":false,"id":"86b51914-9cef-476a-b1dc-049f08c512a6","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"33402863-22c5-4f4c-98ad-d74c9bf34646","path":"sprites/sMiniMarioTurn/sMiniMarioTurn.yy",},},},"Disabled":false,"id":"47c6d70f-a63f-4fd0-b942-6eb5c82562b9","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

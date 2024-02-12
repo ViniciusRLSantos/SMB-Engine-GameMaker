@@ -3,9 +3,9 @@
   "resourceVersion": "1.0",
   "name": "sMiniMarioIdle",
   "bbox_bottom": 23,
-  "bbox_left": 1,
-  "bbox_right": 14,
-  "bbox_top": 4,
+  "bbox_left": 2,
+  "bbox_right": 13,
+  "bbox_top": 9,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"88dc0535-b0b1-4a36-a634-3aa9e8410d46",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"976a1ee2-4272-410f-a169-39d74230a3ac",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 24,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"5d119522-7292-4aab-99b1-94cd6376ebc4","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"c5a575cd-bedb-41d5-9577-a52d39bcf1de","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 7,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"88dc0535-b0b1-4a36-a634-3aa9e8410d46","path":"sprites/sMiniMarioIdle/sMiniMarioIdle.yy",},},},"Disabled":false,"id":"dbbbc291-fe48-424f-b13b-fe1d549679d4","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"976a1ee2-4272-410f-a169-39d74230a3ac","path":"sprites/sMiniMarioIdle/sMiniMarioIdle.yy",},},},"Disabled":false,"id":"54592b0e-06a5-4ccb-acde-4c3fbdbcfbb1","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

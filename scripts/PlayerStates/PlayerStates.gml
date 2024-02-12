@@ -14,15 +14,14 @@ function player_ground() {
 				running = true;
 			} else {
 				sprite_index = sprite.walk;
-				
 			}
 		}
 		hspd = approach(hspd, spd*move, acc_g);
 	} else {
 		hspd = approach(hspd, 0, fric_g);
-		if (round(hspd) == 0) sprite_index = sprite.idle;
 		running = false;
 	}
+	if (round(hspd) == 0) sprite_index = sprite.idle;
 
 	if (vspd < 0) {
 		vspd = min(12, vspd + GRAVITY);
@@ -51,7 +50,6 @@ function player_ground() {
 		coyote_timing = COYOTE;
 	} else {
 		state = player_air;
-		show_debug_message(running);
 	}
 
 	if ((coyote_timing > 0 && kJump) or (jump_buffer > 0 && grounded)) {
@@ -183,6 +181,19 @@ function player_climb() {
 
 function player_water() {
 	return;
+}
+
+function player_death() {
+	vspd += GRAVITY;
+	sprite_index = sprite.death;
+	
+	with (oCamera) {
+		target = noone;
+	}
+	if (!in_view_y(12)) {
+		room_restart();
+	}
+	y += vspd;
 }
 #endregion
 

@@ -5,7 +5,7 @@
   "bbox_bottom": 31,
   "bbox_left": 0,
   "bbox_right": 15,
-  "bbox_top": 3,
+  "bbox_top": 7,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,15 +13,15 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"4d756d9d-5bb4-43b1-aadf-d35cbc35f944",},
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"6d00e804-0837-4ae1-9d5d-6244e85da580",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"d29c4c37-2325-4254-a452-219c31daa59a",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"26a9b5b2-a3e9-4da1-8501-f66a28651288",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 32,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"5dca5275-3667-4ebb-8420-8aadc331cfeb","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"ed1021ad-9619-41fa-a0a7-1f4bd94807be","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 7,
@@ -55,8 +55,8 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4d756d9d-5bb4-43b1-aadf-d35cbc35f944","path":"sprites/sFireMarioClimb/sFireMarioClimb.yy",},},},"Disabled":false,"id":"351cbd00-bb0a-4c96-ae35-b00aaadb2611","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"6d00e804-0837-4ae1-9d5d-6244e85da580","path":"sprites/sFireMarioClimb/sFireMarioClimb.yy",},},},"Disabled":false,"id":"d4484383-814a-493e-b674-d48cd2172b8a","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"d29c4c37-2325-4254-a452-219c31daa59a","path":"sprites/sFireMarioClimb/sFireMarioClimb.yy",},},},"Disabled":false,"id":"13f6b7d0-f5ac-4422-8346-ef44f043f198","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"26a9b5b2-a3e9-4da1-8501-f66a28651288","path":"sprites/sFireMarioClimb/sFireMarioClimb.yy",},},},"Disabled":false,"id":"e9cffe8b-bcf6-4b0e-98c0-3cac2922ed2f","IsCreationKey":false,"Key":1.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

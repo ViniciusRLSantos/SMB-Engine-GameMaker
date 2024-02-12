@@ -7,7 +7,7 @@ function GoombaWalk(){
 	// Collision with player
 	if (instance_exists(oPlayer)) {
 		if (place_meeting(x, y-1, oPlayer)) {
-			if ( oPlayer.vspd > 0 && oPlayer.y < self.y - sprite_height/2) {
+			if (oPlayer.state != player_death && oPlayer.vspd > 0 && oPlayer.y < self.y - sprite_height/2) {
 				spd = 0;
 				hspd = 0;
 				with(oPlayer) {
@@ -16,9 +16,17 @@ function GoombaWalk(){
 				alarm[0] = room_speed*1.2;
 				state = GoombaStomped;
 			}
+		} 
+		if place_meeting(x, y, oPlayer) {
+			if (oPlayer.state != player_death && oPlayer.y > self.y - sprite_height/2) {
+				with(oPlayer) {
+					vspd = jumpspd/1.5;
+					state = player_death;
+				}
+			}
 		}
 	}
-	if (place_meeting(x+hspd, y, par_enemy)) dir*=-1;
+	if (place_meeting(x+sign(hspd), y, par_entity)) dir*=-1;
 	
 	// Solid Collisions
 	#region Horizontal Collision
@@ -41,7 +49,7 @@ function GoombaWalk(){
 		if (_grounded) && (place_meeting(x, y+abs(hspd)+1, oBlock)) && (vspd >= 0) {
 		    vspd += abs(hspd) + 1;
 		}
-	} else if !position_meeting(x+1+sprite_width*dir/2, y+1, oBlock) {
+	} else if !position_meeting(x+1+sprite_width*dir/2, y+1, [oBlock, oJumpthrough]) {
 		dir *= -1;
 	}
 	#endregion
@@ -61,7 +69,9 @@ function GoombaWalk(){
 }
 
 function GoombaKnocked() {
-	
+	vspd += GRAVITY;
+	sprite_index = sprite.knocked;
+	if (!in_view_y(-32)) instance_destroy();
 }
 
 function GoombaStomped() {

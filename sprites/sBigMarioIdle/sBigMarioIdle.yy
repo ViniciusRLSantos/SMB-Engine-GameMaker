@@ -3,9 +3,9 @@
   "resourceVersion": "1.0",
   "name": "sBigMarioIdle",
   "bbox_bottom": 31,
-  "bbox_left": 0,
+  "bbox_left": 1,
   "bbox_right": 14,
-  "bbox_top": 4,
+  "bbox_top": 5,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"e9f99c91-4018-4912-8fe2-b2aa724e4708",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"4cb82472-6cc9-4633-b261-00ae7fb0471b",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 32,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"8161d4f0-3dc0-4bbb-99c1-ec650c746471","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"baf76a64-ab4e-4155-95d0-d86ebd0757f3","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 7,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"e9f99c91-4018-4912-8fe2-b2aa724e4708","path":"sprites/sBigMarioIdle/sBigMarioIdle.yy",},},},"Disabled":false,"id":"2c88d4c4-0bac-44f1-ba11-b554e22fb60e","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4cb82472-6cc9-4633-b261-00ae7fb0471b","path":"sprites/sBigMarioIdle/sBigMarioIdle.yy",},},},"Disabled":false,"id":"089672a8-422d-4533-a237-fc1a3d308870","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

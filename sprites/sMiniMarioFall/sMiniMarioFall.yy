@@ -5,7 +5,7 @@
   "bbox_bottom": 23,
   "bbox_left": 0,
   "bbox_right": 15,
-  "bbox_top": 4,
+  "bbox_top": 8,
   "bboxMode": 0,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,7 +13,7 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"22de3ce2-94c3-4772-9f43-9d5a9f7da4a2",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"0108849a-deeb-45fa-ab69-182cdadbaeb7",},
   ],
   "gridX": 0,
   "gridY": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"22de3ce2-94c3-4772-9f43-9d5a9f7da4a2","path":"sprites/sMiniMarioFall/sMiniMarioFall.yy",},},},"Disabled":false,"id":"1934e600-903a-4107-840d-92f3bc12815a","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"0108849a-deeb-45fa-ab69-182cdadbaeb7","path":"sprites/sMiniMarioFall/sMiniMarioFall.yy",},},},"Disabled":false,"id":"516c71c4-ead5-4c72-9a2b-c63fcdb755c5","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

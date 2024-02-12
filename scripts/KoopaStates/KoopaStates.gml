@@ -5,6 +5,7 @@ function KoopaWalk() {
 	var _grounded = place_meeting(x, y+1, [oBlock, oJumpthrough]) && !place_meeting(x, y, [oBlock, oJumpthrough]);
 
 	// Collision
+	
 	#region Horizontal Collision
 	repeat(ceil(abs(hspd))) {
 	    var yplus = 0;

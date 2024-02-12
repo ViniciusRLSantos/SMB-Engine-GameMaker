@@ -3,7 +3,7 @@
   "resourceVersion": "1.1",
   "name": "Windows",
   "option_windows_allow_fullscreen_switching": false,
-  "option_windows_borderless": false,
+  "option_windows_borderless": true,
   "option_windows_company_info": "YoYo Games Ltd",
   "option_windows_copy_exe_to_dest": false,
   "option_windows_copyright_info": "",
@@ -30,5 +30,5 @@
   "option_windows_texture_page": "2048x2048",
   "option_windows_use_splash": false,
   "option_windows_version": "1.0.0.0",
-  "option_windows_vsync": true,
+  "option_windows_vsync": false,
 }

@@ -18,6 +18,7 @@ fric_a = 0.04;
 
 block_strength = 1;
 hp = 1;
+powerUp = -1;
 
 #region Define Skins
 miniSkin = new MarioSkin(
@@ -48,9 +49,24 @@ BigSkin = new MarioSkin(
 	sBigMarioClimb,
 	sBigMarioRunJump
 );
+
+FireSkin = new MarioSkin(
+	maskMarioBig,
+	sFireMarioIdle, 
+	sFireMarioWalk,
+	sMiniMarioDeath,
+	sFireMarioCrouch,
+	sFireMarioJump,
+	sFireMarioFall,
+	sFireMarioRun,
+	sFireMarioSwim,
+	sFireMarioTurn,
+	sFireMarioClimb,
+	sFireMarioRunJump
+);
 #endregion
 
-sprite = miniSkin;
+sprite = MiniSkin;
 mask_index = sprite.collision_mask;
 
 state = player_ground;
