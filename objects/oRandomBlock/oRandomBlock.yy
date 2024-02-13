@@ -31,7 +31,15 @@
   "physicsShape": 1,
   "physicsShapePoints": [],
   "physicsStartAwake": true,
-  "properties": [],
+  "properties": [
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"item_to_spawn","filters":[],"listItems":[
+        "ITEM.MUSHROOM",
+        "ITEM.FIREFLOWER",
+        "ITEM.LEAF",
+        "ITEM.HAMMERSUIT",
+        "ITEM.ONEUP",
+      ],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"ITEM.FIREFLOWER","varType":6,},
+  ],
   "solid": false,
   "spriteId": {
     "name": "sBlockRandom",

@@ -6,7 +6,14 @@ function player_ground() {
 	if (move != 0) {	
 		dir = move;
 		if (move <> sign(hspd)) {
-			if (hspd != 0) sprite_index = sprite.turn;
+			if (hspd != 0)  {
+				sprite_index = sprite.turn;
+				if !(audio_is_playing(sndSkid)) audio_play_sound(sndSkid, 10, 0);
+				if !layer_exists("SkidParticle") layer_create(100, "SkidParticle")
+				var _p = part_system_create(partSkid);
+				part_system_layer(_p, "SkidParticle");
+				part_system_position(_p, x, y);
+			}
 		} else {
 			image_speed = abs(hspd)/spd;
 			if abs(hspd) == maxspd {
@@ -28,8 +35,9 @@ function player_ground() {
 	} else {
 		vspd = min(12, vspd + GRAVITY*2);
 	}
-
-	var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, oJumpthrough) && !place_meeting(x, y, oJumpthrough));
+	
+	var _jumpthrough = instance_place(x, y+abs(vspd)+1, oJumpthrough);
+	var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
 	jump_buffer--;
 	if (!grounded) {
 		coyote_timing--;
@@ -54,12 +62,31 @@ function player_ground() {
 
 	if ((coyote_timing > 0 && kJump) or (jump_buffer > 0 && grounded)) {
 		vspd = jumpspd;
+		audio_play_sound(sndJump, 10, 0);
 	}
 	#region Horizontal Collision
 
 	var _Hpixel_check = sign(hspd);
+	//var _jslope = instance_position(x+hdir*(1+sprite_width/2), y, oSlopeJumpthrough);
+	var _list = ds_list_create();
+	var _jslope = instance_place_list(x+hdir*spd, y, oSlopeJumpthrough, _list, false);
+	var yplus = 0;
+	if (_jslope) {
+		var yplus = 0;
+		for (var i=0; i < _jslope; i++) {
+			if (!place_meeting(x, y, _list[| i])) {
+				if (sign(_list[| i].image_xscale) != hdir) {
+					while (place_meeting(x+hspd, y-yplus, _list[| i]) && yplus <= abs(hspd)) 
+						yplus++;
+				}
+				if !(place_meeting(x+hspd, y-yplus, _list[| i])) {
+					y -= yplus;
+				}
+			}
+		}
+	}
+	ds_list_destroy(_list);
 	if (place_meeting(x+hspd, y, oBlock)) {
-		
 		var yplus = 0;
 		while (place_meeting(x+hspd, y-yplus, oBlock) && yplus <= abs(hspd)) yplus++;
 
@@ -81,11 +108,12 @@ function player_ground() {
 	if (grounded) && (place_meeting(x, y+abs(hspd)+1, [oBlock, oJumpthrough])) && (vspd >= 0) {
 		vspd += abs(hspd) + 1;
 	}
-
-	if (vspd <> 0 && place_meeting(x, y+vspd, oBlock))
-	|| (vspd >= 0 && place_meeting(x, y+abs(vspd), oJumpthrough) && !place_meeting(x, y, oJumpthrough)) {
+	
+	
+	if (vspd <> 0 && place_meeting(x, y+vspd, oBlock)) 
+	|| (_jumpthrough != noone && vspd >= 0 && place_meeting(x, y+abs(vspd), _jumpthrough) && !place_meeting(x, y, _jumpthrough)) {
 		y = round(y);
-		while !(place_meeting(x, y+sign(vspd), [oBlock, oJumpthrough])) y+=sign(vspd);
+		while !(place_meeting(x, y+sign(vspd), [oBlock, _jumpthrough])) y+=sign(vspd);
 		vspd = 0;
 	}
 	y += vspd;
@@ -112,8 +140,8 @@ function player_air() {
 		if (!running) sprite_index = sprite.fall;
 		vspd = min(12, vspd + GRAVITY*2);
 	}
-
-	var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, oJumpthrough) && !place_meeting(x, y, oJumpthrough));
+	var _jumpthrough = instance_place(x, y+abs(vspd)+1, oJumpthrough);
+	var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
 	jump_buffer--;
 	if (!grounded) {
 		//sprite_index = sprite.jump
@@ -139,19 +167,39 @@ function player_air() {
 
 	if ((coyote_timing > 0 && kJump) or (jump_buffer > 0 && grounded)) {
 		vspd = jumpspd;
+		audio_play_sound(sndJump, 10, 0);
 	}
 	#region Horizontal Collision
 
 	var _Hpixel_check = sign(hspd);
-	if place_meeting(x+hspd, y, oBlock) {
+	var _list = ds_list_create();
+	var _jslope = instance_place_list(x+hdir*spd, y, oSlopeJumpthrough, _list, false);
+	
+	if (_jslope) {
+		var yplus = 0;
+		for (var i=0; i < _jslope; i++) {
+			if (!place_meeting(x, y, _list[| i])) {
+				if (sign(_list[| i].image_xscale) != hdir) {
+					while (place_meeting(x+hspd, y-yplus, _list[| i]) && yplus <= abs(hspd)) 
+						yplus++;
+				}
+				if !(place_meeting(x+hspd, y-yplus, _list[| i])) {
+					y -= yplus;
+				}
+			}
+		}
+	}
+	ds_list_destroy(_list);
+	if (place_meeting(x+hspd, y, oBlock)) {
 		var yplus = 0;
 		while (place_meeting(x+hspd, y-yplus, oBlock) && yplus <= abs(hspd)) yplus++;
 
-		if (place_meeting(x+hspd, y-yplus, oBlock)) {
+		if (hspd <> 0 && place_meeting(x+hspd, y-yplus, oBlock) && !place_meeting(x, y, oBlock)) {
+			
 			while !(place_meeting(x+_Hpixel_check, y, oBlock)) {
 				x += _Hpixel_check;
 			}
-			hspd = 0;		
+			hspd = 0;
 		} else {
 			y -= yplus;
 		}
@@ -164,11 +212,14 @@ function player_air() {
 	if (grounded) && (place_meeting(x, y+abs(hspd)+1, [oBlock, oJumpthrough])) && (vspd >= 0) {
 		vspd += abs(hspd) + 1;
 	}
-
-	if (vspd <> 0 && place_meeting(x, y+vspd, oBlock))
-	|| (vspd >= 0 && place_meeting(x, y+abs(vspd), oJumpthrough) && !place_meeting(x, y, oJumpthrough)) {
+	
+	
+	if (vspd <> 0 && place_meeting(x, y+vspd, oBlock)) 
+	|| (_jumpthrough != noone && vspd > 0 && place_meeting(x, y+abs(vspd), _jumpthrough) && !place_meeting(x, y, _jumpthrough)) {
 		y = round(y);
-		while !(place_meeting(x, y+sign(vspd), [oBlock, oJumpthrough])) y+=sign(vspd);
+		while !(place_meeting(x, y+sign(vspd), [oBlock, _jumpthrough]))  {
+			y+=sign(vspd);
+		}
 		vspd = 0;
 	}
 	y += vspd;
@@ -186,14 +237,18 @@ function player_water() {
 function player_death() {
 	vspd += GRAVITY;
 	sprite_index = sprite.death;
-	
+	audio_stop_sound(mOverworld);
 	with (oCamera) {
 		target = noone;
 	}
-	if (!in_view_y(12)) {
+	if (!audio_is_playing(sndDeath)) {
 		room_restart();
 	}
 	y += vspd;
 }
 #endregion
 
+#region Power-Ups
+
+
+#endregion

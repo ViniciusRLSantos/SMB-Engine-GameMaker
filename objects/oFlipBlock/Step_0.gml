@@ -7,6 +7,7 @@ if (oPlayer.vspd <= 0 && place_meeting(x, y+1, oPlayer) && !place_meeting(x, y, 
 	oPlayer.vspd = 0;
 	if (!flipping) {
 		flipping = true;
+		audio_play_sound(sndBump, 10, 0);
 		img_spd = 0.25;
 		yy-=4;
 		alarm[0] = room_speed*4;

@@ -9,6 +9,7 @@ if (oPlayer.vspd <= 0 && place_meeting(x, y+1, oPlayer) && !place_meeting(x, y, 
 	if (oPlayer.block_strength < 2) {
 		if (!bonked) {
 			bonked = true;
+			audio_play_sound(sndBump, 10, 0);
 			alarm[0] = 10
 			yy-=offset;
 		}

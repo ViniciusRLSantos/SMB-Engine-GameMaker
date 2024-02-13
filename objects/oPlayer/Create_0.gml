@@ -7,12 +7,13 @@ vspd = 0;
 jumpspd = -5;
 running = false;
 dir = 1;
+hdir = 1;
 
 jump_buffer = 0;
 coyote_timing = 0;
 
-acc_g = 0.15;
-fric_g = 0.085;
+acc_g = 0.075;
+fric_g = 0.065;
 acc_a = 0.125;
 fric_a = 0.04;
 
@@ -20,8 +21,10 @@ block_strength = 1;
 hp = 1;
 powerUp = -1;
 
+hit = false;
+
 #region Define Skins
-miniSkin = new MarioSkin(
+MiniSkin = new MarioSkin(
 	maskMarioSmall,
 	sMiniMarioIdle, 
 	sMiniMarioWalk,
@@ -68,5 +71,8 @@ FireSkin = new MarioSkin(
 
 sprite = MiniSkin;
 mask_index = sprite.collision_mask;
+current_sprite = sprite.idle;
 
 state = player_ground;
+
+depth = -100

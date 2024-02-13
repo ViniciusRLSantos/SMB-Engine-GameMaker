@@ -1,4 +1,5 @@
 //partBrick
+audio_play_sound(sndBrickBreak, 10, 0);
 var _ps = part_system_create(partBrick);
 /*
 //Emitter

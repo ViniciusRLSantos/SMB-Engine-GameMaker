@@ -1,26 +1,34 @@
 
 hspd = dir * spd * moving;
+vspd = min(12, vspd + GRAVITY);
 image_speed = moving;
 
 // Collision with player
-
-with (oPlayer) {
-	if (hspd <> 0) {
-		if (place_meeting(x+hspd, y, other) && !other.moving) {
-			other.dir = sign(other.x - x);
-			other.moving = true;
-		}
-	}
-}
-
 if (instance_exists(oPlayer)) {
-	if (place_meeting(x, y-1, oPlayer)) {
-		if ( oPlayer.vspd > 0 && oPlayer.y < self.y - sprite_height/2) {
+	
+	if (sign(self.x - oPlayer.x) != 0) stomp_dir = sign(self.x - oPlayer.x);
+	
+	if (oPlayer.y < self.y - sprite_height/2) {
+		if ( oPlayer.vspd >= 0 && place_meeting(x, y-oPlayer.vspd, oPlayer) ) {
 			with(oPlayer) {
 				if (kJumpHeld) vspd = jumpspd; else vspd = jumpspd/3;
-				if sign(x - other.x) != 0 other.dir = sign(other.x - x);
+				other.dir = other.stomp_dir;
 			}
 			moving = !moving;
+		}
+	} else {
+		if (moving && sign(hspd)==sign(oPlayer.x - x)) {
+			if (place_meeting(x+hspd, y, oPlayer)) {
+				kill_player();
+			}
+		}
+	}
+	with (oPlayer) {
+		if (hspd <> 0) {
+			if (place_meeting(x+hspd, y, other) && !other.moving) {
+				other.dir = sign(other.x - x);
+				other.moving = true;
+			}
 		}
 	}
 }

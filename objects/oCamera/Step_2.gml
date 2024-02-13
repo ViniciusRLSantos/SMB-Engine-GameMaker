@@ -9,7 +9,7 @@ if (instance_exists(target)) {
 	yTo = target.y-target.sprite_height/2;
 }
 x += (xTo - x)/5;
-y = (yTo - y)/4;
+y += (yTo - y)/4;
 x = clamp(x, game_width*zoom/2, room_width-game_width*zoom/2);
 y = clamp(y, game_height*zoom/2, room_height-game_width*zoom/2);
 
@@ -25,8 +25,9 @@ camera_set_view_pos(
 	floor(camY)
 );
 
-camera_set_view_size(cam, game_width*zoom + 1, game_height*zoom + 1);
 
 if (surface_get_width(view_surf) != game_width*zoom + 1) {
+	camera_set_view_size(cam, game_width*zoom + 1, game_height*zoom + 1);
+	display_set_gui_size(game_width*zoom, game_height*zoom);
 	surface_resize(view_surf, game_width*zoom + 1, game_height*zoom + 1);
 }

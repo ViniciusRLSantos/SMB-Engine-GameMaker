@@ -13,17 +13,13 @@ function GoombaWalk(){
 				with(oPlayer) {
 					if (kJumpHeld) vspd = jumpspd; else vspd = jumpspd/3;
 				}
+				//audio_play_sound(, 10, 0);
 				alarm[0] = room_speed*1.2;
 				state = GoombaStomped;
 			}
 		} 
 		if place_meeting(x, y, oPlayer) {
-			if (oPlayer.state != player_death && oPlayer.y > self.y - sprite_height/2) {
-				with(oPlayer) {
-					vspd = jumpspd/1.5;
-					state = player_death;
-				}
-			}
+			kill_player();
 		}
 	}
 	if (place_meeting(x+sign(hspd), y, par_entity)) dir*=-1;
