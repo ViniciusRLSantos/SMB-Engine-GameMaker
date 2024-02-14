@@ -3,6 +3,7 @@
 #macro COYOTE 5
 #macro JUMP_BUFFER 8
 #macro HIT_TIMER room_speed*2
+#macro DESPAWN_TIME room_speed/2
 
 // Enums
 enum ITEM {

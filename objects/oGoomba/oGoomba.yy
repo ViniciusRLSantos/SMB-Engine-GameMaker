@@ -4,19 +4,21 @@
   "name": "oGoomba",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
   ],
   "managed": true,
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"par_enemy","path":"objects/par_enemy/par_enemy.yy",},"propertyId":{"name":"knocked_state","path":"objects/par_enemy/par_enemy.yy",},"value":"EnemyKnocked",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"par_enemy_ground","path":"objects/par_enemy_ground/par_enemy_ground.yy",},"propertyId":{"name":"move_state","path":"objects/par_enemy_ground/par_enemy_ground.yy",},"value":"EnemyWalk",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"par_enemy_ground","path":"objects/par_enemy_ground/par_enemy_ground.yy",},"propertyId":{"name":"stomp_state","path":"objects/par_enemy_ground/par_enemy_ground.yy",},"value":"EnemyStomped",},
+  ],
   "parent": {
     "name": "Enemies",
     "path": "folders/Objects/Enemies.yy",
   },
   "parentObjectId": {
-    "name": "par_enemy",
-    "path": "objects/par_enemy/par_enemy.yy",
+    "name": "par_enemy_ground",
+    "path": "objects/par_enemy_ground/par_enemy_ground.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,

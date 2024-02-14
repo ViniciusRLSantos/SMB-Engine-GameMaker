@@ -16,6 +16,7 @@ if (state != player_death) {
 			mask_index = sprite.collision_mask;
 			hp = 3;
 			block_strength = 2;
+			shoot_fireball();
 		break;
 		case POWER.MARIOLEAF:
 			sprite = BigSkin;

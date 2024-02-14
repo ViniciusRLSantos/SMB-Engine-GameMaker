@@ -11,8 +11,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Special Blocks",
+    "path": "folders/Objects/Special Blocks.yy",
   },
   "parentObjectId": {
     "name": "oBlock",

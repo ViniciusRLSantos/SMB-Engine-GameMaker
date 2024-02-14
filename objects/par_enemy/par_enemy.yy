@@ -6,8 +6,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Enemies",
-    "path": "folders/Objects/Enemies.yy",
+    "name": "Parents",
+    "path": "folders/Objects/Enemies/Parents.yy",
   },
   "parentObjectId": {
     "name": "par_entity",
@@ -26,7 +26,9 @@
   "physicsShape": 1,
   "physicsShapePoints": [],
   "physicsStartAwake": true,
-  "properties": [],
+  "properties": [
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"knocked_state","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"EnemyKnocked","varType":0,},
+  ],
   "solid": false,
   "spriteId": null,
   "spriteMaskId": null,

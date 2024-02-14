@@ -19,7 +19,7 @@ fric_a = 0.04;
 
 block_strength = 1;
 hp = 1;
-powerUp = -1;
+powerUp = POWER.MARIOFIRE;
 
 hit = false;
 
