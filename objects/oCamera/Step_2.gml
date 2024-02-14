@@ -11,7 +11,7 @@ if (instance_exists(target)) {
 x += (xTo - x)/5;
 y += (yTo - y)/4;
 x = clamp(x, game_width*zoom/2, room_width-game_width*zoom/2);
-y = clamp(y, game_height*zoom/2, room_height-game_width*zoom/2);
+y = clamp(y, game_height*zoom/2, room_height-game_height*zoom/2);
 
 var cam = view_camera[0];
 var camX = x-game_width*zoom*0.5;

@@ -12,3 +12,15 @@ if (oPlayer.vspd <= 0 && place_meeting(x, y+1, oPlayer) && !place_meeting(x, y, 
 		sprite_index = sBlockNull;
 	}
 }
+
+if instance_exists(oShell) {
+	with (oShell) {
+		if place_meeting(x+hspd, y, other) && !other.bonked {
+			other.bonked = true;
+			audio_play_sound(sndBump, 10, 0);
+			other.spawnItem();
+			other.yy -= other.offset;
+			other.sprite_index = sBlockNull;
+		}
+	}
+}

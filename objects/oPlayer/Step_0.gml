@@ -1,8 +1,11 @@
 
 get_inputs();
+#region Main Logic
 script_execute(state);
 if (sign(hspd) != 0) hdir = sign(hspd);
+#endregion
 
+#region Power-Ups
 if (state != player_death) {
 	switch(powerUp) {
 		case POWER.MARIOMUSH:
@@ -25,10 +28,11 @@ if (state != player_death) {
 			block_strength = 2;
 		break;
 		case POWER.MARIOHAMMER:
-			sprite = BigSkin;
+			sprite = HammerSkin;
 			mask_index = sprite.collision_mask;
 			hp = 3;
 			block_strength = 2;
+			shoot_hammer();
 		break;
 		default:
 			sprite = MiniSkin;
@@ -40,6 +44,9 @@ if (state != player_death) {
 } else {
 	mask_index = -1;
 }
+#endregion
+
+#region Death
 if (y > room_height + 8) {
 	if state != player_death {
 		vspd = jumpspd;
@@ -48,3 +55,4 @@ if (y > room_height + 8) {
 	}
 	
 }
+#endregion

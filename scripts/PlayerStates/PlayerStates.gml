@@ -29,12 +29,7 @@ function player_ground() {
 		hspd = approach(hspd, 0, fric_g);
 		running = false;
 	}
-	if (running) {
-		if !layer_exists("RunningParticle") layer_create(-1000, "RunningParticle")
-		var _p = part_system_create(partRunning);
-		part_system_layer(_p, "RunningParticle");
-		part_system_position(_p, x+hspd, y);
-	}
+	
 	if (round(hspd) == 0) sprite_index = sprite.idle;
 
 	if (vspd < 0) {
@@ -259,16 +254,25 @@ function shoot_fireball() {
 	if (kSpecial) {
 		if instance_number(oFireball) < 2 {
 			audio_play_sound(sndShoot, 10, 0);
-			with(instance_create_depth(x+hspd, y-sprite_height/2, depth-1, oFireball)) {
+			with(instance_create_depth(x+hspd+dir*sprite_width/2, y-sprite_height/2, depth-1, oFireball)) {
+				owner = other.id;
 				dir = other.dir;
-				vspd = -1;
 			}
 		}
 	}
 }
 
 function shoot_hammer() {
-	
+	if (kSpecial) {
+		if instance_number(oHammer) < 2 {
+			audio_play_sound(sndShoot, 10, 0);
+			with(instance_create_depth(x+hspd, y-sprite_height/2, depth-1, oHammer)) {
+				owner = other.id;
+				dir = other.dir;
+				vspd = -7;
+			}
+		}
+	}
 }
 
 #endregion

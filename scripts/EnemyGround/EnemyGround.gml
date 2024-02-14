@@ -3,33 +3,42 @@ function EnemyWalk(){
 	vspd = min(16, vspd + GRAVITY);
 	sprite_index = sprite.walk;
 	var _grounded = place_meeting(x, y+1, [oBlock, oJumpthrough]) && !place_meeting(x, y, [oBlock, oJumpthrough]);
-
+	
+	// Collision with Entities
+	#region Collision with Player
 	// Collision with player
 	if (instance_exists(oPlayer)) {
-		if (place_meeting(x, y-1, oPlayer)) {
-			if (oPlayer.state != player_death && oPlayer.vspd > 0 && oPlayer.y < self.y - sprite_height/2) {
-				spd = 0;
-				hspd = 0;
-				with(oPlayer) {
-					if (kJumpHeld) vspd = jumpspd; else vspd = jumpspd/3;
+		if (oPlayer.y < self.y - sprite_height/3) {
+			if (place_meeting(x, y-1, oPlayer)) {
+				if (oPlayer.state != player_death) {
+					spd = 0;
+					hspd = 0;
+					with(oPlayer) {
+						if (kJumpHeld) vspd = jumpspd; else vspd = jumpspd/3;
+					}
+					audio_play_sound(sndKnock, 10, 0);
+					state = stomp_state;
 				}
-				audio_play_sound(sndKnock, 10, 0);
-				state = stomp_state;
+			} 
+		} else {
+			if place_meeting(x, y, oPlayer) {
+				kill_player();
 			}
-		} 
-		if place_meeting(x, y, oPlayer) {
-			kill_player();
 		}
+		
+		
 	}
+	#endregion
 	
+	#region Collision with Entity
 	// Collision with Entity
-	var _entity = instance_position(x+dir*(spd+sprite_width/2), y-sprite_height/2, par_entity);
-	if (_entity != noone && _entity != self.id && !place_meeting(x, y, par_entity)) {
-		//while(!place_meeting(x+sign(hspd)/2, y, par_entity)) x+=sign(hspd)/2;
+	var _entity = collision_line(x+dir*(2+spd+sprite_width/2), y-sprite_height-2, x+dir*(2+spd+sprite_width/2), y+2, par_entity, true, true);
+	if (_entity != noone && !place_meeting(x, y, par_entity)) {
 		dir*=-1;
 	}
-	
-	// Solid Collisions
+	#endregion
+
+	// Solid Collision
 	#region Horizontal Collision
 	repeat(ceil(abs(hspd))) {
 	    var yplus = 0;

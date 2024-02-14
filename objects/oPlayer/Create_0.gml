@@ -19,7 +19,7 @@ fric_a = 0.04;
 
 block_strength = 1;
 hp = 1;
-powerUp = POWER.MARIOFIRE;
+powerUp = noone;
 
 hit = false;
 
@@ -66,6 +66,21 @@ FireSkin = new MarioSkin(
 	sFireMarioTurn,
 	sFireMarioClimb,
 	sFireMarioRunJump
+);
+
+HammerSkin = new MarioSkin(
+	maskMarioBig,
+	sHammerMarioIdle, 
+	sHammerMarioWalk,
+	sMiniMarioDeath,
+	sHammerMarioCrouch,
+	sHammerMarioJump,
+	sHammerMarioJump,
+	sHammerMarioRun,
+	sHammerMarioSwim,
+	sHammerMarioTurn,
+	sFireMarioClimb,
+	sHammerMarioRunJump
 );
 #endregion
 
