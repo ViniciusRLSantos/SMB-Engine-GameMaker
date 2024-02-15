@@ -51,6 +51,7 @@ function kill_player() {
 				powerUp = noone;
 				audio_play_sound(sndPowerDown, 10, 0);
 			} else {
+				audio_stop_all();
 				audio_play_sound(sndDeath, 10, 0);
 				vspd = jumpspd;
 				oCamera.target = noone;

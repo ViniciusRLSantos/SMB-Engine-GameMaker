@@ -20,4 +20,4 @@ if (_entity != noone) {
 	}
 }
 
-if (!in_view_x(16) && !in_view_y(16)) instance_destroy();
+if (!in_view_x(16) || !in_view_y(52)) instance_destroy();

@@ -8,7 +8,7 @@
   ],
   "managed": true,
   "overriddenProperties": [
-    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"par_projectile","path":"objects/par_projectile/par_projectile.yy",},"propertyId":{"name":"spd","path":"objects/par_projectile/par_projectile.yy",},"value":"2",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"par_projectile","path":"objects/par_projectile/par_projectile.yy",},"propertyId":{"name":"spd","path":"objects/par_projectile/par_projectile.yy",},"value":"3",},
     {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"par_projectile","path":"objects/par_projectile/par_projectile.yy",},"propertyId":{"name":"penetrate","path":"objects/par_projectile/par_projectile.yy",},"value":"True",},
   ],
   "parent": {

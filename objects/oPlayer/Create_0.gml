@@ -1,13 +1,15 @@
 minspd = 2;
 maxspd = 3;
 spd = 2;
-grav = GRAVITY;
+climb_spd = 1;
+
 hspd = 0;
 vspd = 0;
 jumpspd = -5;
 running = false;
 dir = 1;
 hdir = 1;
+hspd_add = 0;
 
 jump_buffer = 0;
 coyote_timing = 0;
@@ -79,7 +81,7 @@ HammerSkin = new MarioSkin(
 	sHammerMarioRun,
 	sHammerMarioSwim,
 	sHammerMarioTurn,
-	sFireMarioClimb,
+	sHammerMarioClimb,
 	sHammerMarioRunJump
 );
 #endregion

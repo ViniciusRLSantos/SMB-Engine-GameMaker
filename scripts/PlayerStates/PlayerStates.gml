@@ -1,6 +1,7 @@
 #region General Mario States
 function player_ground() {
 	get_inputs();
+	#region Movement
 	move = kRight - kLeft;
 	spd = minspd*(!kRun) + maxspd*kRun;
 	if (move != 0) {	
@@ -37,8 +38,11 @@ function player_ground() {
 	} else {
 		vspd = min(12, vspd + GRAVITY*2);
 	}
+	#endregion
 	
-	var _jumpthrough = instance_position(x, y+abs(vspd)+1, oJumpthrough);
+	
+	#region Jumping
+	var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y, oJumpthrough, true, true);
 	var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
 	jump_buffer--;
 	if (!grounded) {
@@ -66,63 +70,17 @@ function player_ground() {
 		vspd = jumpspd;
 		audio_play_sound(sndJump, 10, 0);
 	}
-	#region Horizontal Collision
-
-	var _Hpixel_check = sign(hspd);
-	//var _jslope = instance_position(x+hdir*(1+sprite_width/2), y, oSlopeJumpthrough);
-	var _list = ds_list_create();
-	var _jslope = instance_place_list(x+hdir*spd, y, oSlopeJumpthrough, _list, false);
-	var yplus = 0;
-	if (_jslope) {
-		var yplus = 0;
-		for (var i=0; i < _jslope; i++) {
-			if (!place_meeting(x, y, _list[| i])) {
-				if (sign(_list[| i].image_xscale) != hdir) {
-					while (place_meeting(x+hspd, y-yplus, _list[| i]) && yplus <= abs(hspd)) 
-						yplus++;
-				}
-				if !(place_meeting(x+hspd, y-yplus, _list[| i])) {
-					y -= yplus;
-				}
-			}
-		}
-	}
-	ds_list_destroy(_list);
-	if (place_meeting(x+hspd, y, oBlock)) {
-		var yplus = 0;
-		while (place_meeting(x+hspd, y-yplus, oBlock) && yplus <= abs(hspd)) yplus++;
-
-		if (hspd <> 0 && place_meeting(x+hspd, y-yplus, oBlock) && !place_meeting(x, y, oBlock)) {
-			while !(place_meeting(x+_Hpixel_check, y, oBlock)) {
-				x += _Hpixel_check;
-			}
-			hspd = 0;
-		} else {
-			y -= yplus;
-		}
-	}
-	x += hspd;
 	#endregion
-
-	#region Vertical Collision
-	// Descer da rampa
-	if (grounded) && (place_meeting(x, y+abs(hspd)+1, [oBlock, oJumpthrough])) && (vspd >= 0) {
-		vspd += abs(hspd) + 1;
-	}
 	
+	can_climb();
 	
-	if (vspd <> 0 && place_meeting(x, y+vspd, oBlock)) 
-	|| (_jumpthrough != noone && vspd >= 0 && place_meeting(x, y+abs(vspd), _jumpthrough) && !place_meeting(x, y, _jumpthrough)) {
-		y = round(y);
-		while !(place_meeting(x, y+sign(vspd), [oBlock, _jumpthrough])) y+=sign(vspd);
-		vspd = 0;
-	}
-	y += vspd;
-	#endregion
+	move_and_slide();
+	
 }
 
 function player_air() {
 	get_inputs();
+	#region Movement
 	move = kRight - kLeft;
 	spd = minspd*(!kRun) + maxspd*kRun;
 
@@ -141,7 +99,11 @@ function player_air() {
 		if (!running) sprite_index = sprite.fall;
 		vspd = min(12, vspd + GRAVITY*2);
 	}
-	var _jumpthrough = instance_position(x, y+abs(vspd)+1, oJumpthrough);
+	#endregion
+	
+	
+	#region Jumping
+	var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y, oJumpthrough, true, true);
 	var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
 	jump_buffer--;
 	if (!grounded) {
@@ -169,65 +131,49 @@ function player_air() {
 		vspd = jumpspd;
 		audio_play_sound(sndJump, 10, 0);
 	}
-	#region Horizontal Collision
-
-	var _Hpixel_check = sign(hspd);
-	var _list = ds_list_create();
-	var _jslope = instance_place_list(x+hdir*spd, y, oSlopeJumpthrough, _list, false);
-	
-	if (_jslope) {
-		var yplus = 0;
-		for (var i=0; i < _jslope; i++) {
-			if (!place_meeting(x, y, _list[| i])) {
-				if (sign(_list[| i].image_xscale) != hdir) {
-					while (place_meeting(x+hspd, y-yplus, _list[| i]) && yplus <= abs(hspd)) 
-						yplus++;
-				}
-				if !(place_meeting(x+hspd, y-yplus, _list[| i])) {
-					y -= yplus;
-				}
-			}
-		}
-	}
-	ds_list_destroy(_list);
-	if (place_meeting(x+hspd, y, oBlock)) {
-		var yplus = 0;
-		while (place_meeting(x+hspd, y-yplus, oBlock) && yplus <= abs(hspd)) yplus++;
-
-		if (hspd <> 0 && place_meeting(x+hspd, y-yplus, oBlock) && !place_meeting(x, y, oBlock)) {
-			
-			while !(place_meeting(x+_Hpixel_check, y, oBlock)) {
-				x += _Hpixel_check;
-			}
-			hspd = 0;
-		} else {
-			y -= yplus;
-		}
-	}
-	x += hspd;
 	#endregion
-
-	#region Vertical Collision
-	// Descer da rampa
-	if (grounded) && (place_meeting(x, y+abs(hspd)+1, [oBlock, oJumpthrough])) && (vspd >= 0) {
-		vspd += abs(hspd) + 1;
-	}
 	
+	can_climb();
 	
-	if (vspd <> 0 && place_meeting(x, y+vspd, oBlock)) 
-	|| (_jumpthrough != noone && vspd >= 0 && place_meeting(x, y+abs(vspd), _jumpthrough) && !place_meeting(x, y, _jumpthrough)) {
-		y = round(y);
-		while !(place_meeting(x, y+sign(vspd), [oBlock, _jumpthrough]))  {
-			y+=sign(vspd);
-		}
-		vspd = 0;
-	}
-	y += vspd;
-	#endregion
+	move_and_slide();
+	
 }
 
 function player_climb() {
-	return;
+	get_inputs();
+	sprite_index = sprite.climb;
+	
+	#region Movement
+	var xaxis = kRight - kLeft;
+	var yaxis = kDown - kUp;
+	
+	if (xaxis != 0 || yaxis != 0) {
+		image_speed = 1;
+		var _dir = arctan2(yaxis, xaxis);
+		hspd = cos(_dir)*climb_spd;
+		vspd = sin(_dir)*climb_spd;
+	} else {
+		image_speed = 0;
+		hspd = 0;
+		vspd = 0;
+	}
+	#endregion
+	
+	#region Jumping
+	if (kJump) {
+		vspd = jumpspd;
+		state = player_air;
+		image_speed = 1;
+	}
+	#endregion
+	
+	if !place_meeting(x, y, oClimb) {
+		state = player_ground;
+		image_speed = 1;
+	}
+	
+	move_and_slide();
+	
 }
 
 function player_water() {
@@ -247,6 +193,8 @@ function player_death() {
 	y += vspd;
 }
 #endregion
+
+
 
 #region Power-Ups
 
@@ -272,6 +220,84 @@ function shoot_hammer() {
 				vspd = -7;
 			}
 		}
+	}
+}
+
+#endregion
+
+
+
+#region Collision Script
+
+
+function move_and_slide() {
+	
+	var _list = ds_list_create();
+
+	var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y-1, oJumpthrough, true, true);
+	var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
+	
+	#region Horizontal Collision
+	var _jumpthrough_list = collision_rectangle_list(bbox_left-abs(hspd), y+abs(vspd)+1,bbox_right+abs(hspd), y-2, oJumpthrough, true, true, _list, false);
+	if (_jumpthrough_list) {
+		for(var i=0; i<_jumpthrough_list; i++) {
+			if (_list[| i].image_angle <> 0) {
+				var yplus = 0;
+				while place_meeting(x+hdir*spd, y-yplus, _list[| i]) && yplus <= abs(hspd*2) yplus++;
+				if (hspd <> 0 && !place_meeting(x+hspd, y-yplus, _list[| i])) {
+					y-=yplus;
+				}
+			}
+		}
+		
+	}
+	ds_list_clear(_list);
+	ds_list_destroy(_list);
+	var hspd_final = hspd + hspd_add;
+	var _Hpixel_check = sign(hspd_final);
+	hspd_add = 0;
+	
+	if (place_meeting(x+hspd_final, y, oBlock)) {
+		var yplus = 0;
+		while (place_meeting(x+hspd_final, y-yplus, oBlock) && yplus <= abs(hspd_final)) yplus++;
+
+		if (hspd_final <> 0 && place_meeting(x+hspd_final, y-yplus, oBlock) && !place_meeting(x, y, oBlock)) {
+			while !(place_meeting(x+_Hpixel_check, y, oBlock)) {
+				x += _Hpixel_check;
+			}
+			hspd_final = 0;
+			hspd = 0;
+		} else {
+			y -= yplus;
+		}
+	}
+	x += hspd_final;
+	#endregion
+	
+	
+	
+	// Descer da rampa
+	if (grounded) && (place_meeting(x, y+abs(hspd)+1, [oBlock, _jumpthrough])) && (vspd >= 0) {
+		vspd += abs(hspd) + 1;
+	}
+	
+	
+	
+	#region Vertical Collision	
+	if (vspd <> 0 && place_meeting(x, y+vspd, oBlock)) 
+	|| (_jumpthrough != noone && vspd >= 0 && place_meeting(x, y+abs(vspd), _jumpthrough) && !place_meeting(x, y, _jumpthrough)) {
+		y = round(y);
+		while !(place_meeting(x, y+sign(vspd), [oBlock, _jumpthrough])) y+=sign(vspd);
+		vspd = 0;
+	}
+	y += vspd;
+	#endregion
+}
+
+function can_climb() {
+	get_inputs();
+	if (place_meeting(x, y, oClimb)) && (kUpPressed||kDownPressed) {
+		state = player_climb;
 	}
 }
 
