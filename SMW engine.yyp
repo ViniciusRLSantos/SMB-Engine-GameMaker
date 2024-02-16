@@ -17,6 +17,7 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Notes","folderPath":"folders/Notes.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Objects","folderPath":"folders/Objects.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Colliders","folderPath":"folders/Objects/Colliders.yy",},
+    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Effect","folderPath":"folders/Objects/Effect.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Enemies","folderPath":"folders/Objects/Enemies.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Parents","folderPath":"folders/Objects/Enemies/Parents.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Parents","folderPath":"folders/Objects/Parents.yy",},
@@ -51,7 +52,6 @@
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Mini","folderPath":"folders/Sprites/Mario Sprites/Mini.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Tile Sets","folderPath":"folders/Tile Sets.yy",},
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Timelines","folderPath":"folders/Timelines.yy",},
-    {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Effect","folderPath":"folders/Objects/Effect.yy",},
   ],
   "IncludedFiles": [],
   "isEcma": false,
@@ -141,6 +141,7 @@
     {"id":{"name":"sItemIcon","path":"sprites/sItemIcon/sItemIcon.yy",},},
     {"id":{"name":"sFireMarioRun","path":"sprites/sFireMarioRun/sFireMarioRun.yy",},},
     {"id":{"name":"sndPowerDown","path":"sounds/sndPowerDown/sndPowerDown.yy",},},
+    {"id":{"name":"partFire","path":"particles/partFire/partFire.yy",},},
     {"id":{"name":"shdColorSwap","path":"shaders/shdColorSwap/shdColorSwap.yy",},},
     {"id":{"name":"sFireMarioIdle","path":"sprites/sFireMarioIdle/sFireMarioIdle.yy",},},
     {"id":{"name":"oItem","path":"objects/oItem/oItem.yy",},},
@@ -206,8 +207,8 @@
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
   ],
   "templateType": "game",
   "TextureGroups": [

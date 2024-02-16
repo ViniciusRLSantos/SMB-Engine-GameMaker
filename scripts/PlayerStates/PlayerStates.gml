@@ -277,7 +277,7 @@ function move_and_slide() {
 	
 	
 	// Descer da rampa
-	if (grounded) && (place_meeting(x, y+abs(hspd)+1, [oBlock, _jumpthrough])) && (vspd >= 0) {
+	if (grounded) && (place_meeting(x, y+abs(hspd)+1, [oBlock, _jumpthrough]) && !place_meeting(x, y, [oBlock, _jumpthrough])) && (vspd >= 0) {
 		vspd += abs(hspd) + 1;
 	}
 	

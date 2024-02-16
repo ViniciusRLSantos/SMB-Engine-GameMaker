@@ -107,6 +107,7 @@
     {"name":"sItemIcon","order":5,"path":"sprites/sItemIcon/sItemIcon.yy",},
     {"name":"sFireMarioRun","order":5,"path":"sprites/sFireMarioRun/sFireMarioRun.yy",},
     {"name":"sndPowerDown","order":5,"path":"sounds/sndPowerDown/sndPowerDown.yy",},
+    {"name":"partFire","order":3,"path":"particles/partFire/partFire.yy",},
     {"name":"sFireMarioIdle","order":3,"path":"sprites/sFireMarioIdle/sFireMarioIdle.yy",},
     {"name":"oItem","order":8,"path":"objects/oItem/oItem.yy",},
     {"name":"PlayerStates","order":5,"path":"scripts/PlayerStates/PlayerStates.yy",},

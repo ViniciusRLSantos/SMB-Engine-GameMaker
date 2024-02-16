@@ -35,6 +35,9 @@
     "name": "sItemIcon",
     "path": "sprites/sItemIcon/sItemIcon.yy",
   },
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "sGoombaWalk",
+    "path": "sprites/sGoombaWalk/sGoombaWalk.yy",
+  },
   "visible": true,
 }

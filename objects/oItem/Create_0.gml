@@ -3,5 +3,7 @@ draw_height = 0;
 sprite_index = -1;
 mask_index = -1;
 dir = 1;
+spd = 1;
+hdir = 1;
 hspd = 0;
 vspd = 0;

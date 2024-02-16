@@ -39,3 +39,6 @@ repeat(ceil(abs(vspd))) {
 	}
 }
 #endregion
+
+var _p = part_system_create(partFire);
+part_system_position(_p, x, y);
