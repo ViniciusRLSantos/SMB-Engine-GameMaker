@@ -50,6 +50,7 @@ if (state != player_death) {
 if (y > room_height + 8) {
 	if state != player_death {
 		vspd = jumpspd;
+		audio_stop_all();
 		audio_play_sound(sndDeath, 10, 0);
 		state = player_death;
 	}

@@ -1,8 +1,8 @@
 application_surface_enable(false);
 
 
-game_width = 320;
-game_height = 180;
+game_width = 480;
+game_height = 270;
 scale = 4;
 
 //window_set_fullscreen(true);

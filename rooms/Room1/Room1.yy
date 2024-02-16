@@ -58,6 +58,7 @@
     {"name":"inst_F98FA99","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_A904D93","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_76719B02","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_63CA01B5","path":"rooms/Room1/Room1.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -119,6 +120,10 @@
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_F98FA99","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":32.0,"y":288.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_A904D93","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oBlock","path":"objects/oBlock/oBlock.yy",},"properties":[],"rotation":-25.75984,"scaleX":5.0,"scaleY":1.0,"x":1872.0,"y":272.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_76719B02","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oRedGoomba","path":"objects/oRedGoomba/oRedGoomba.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":688.0,"y":176.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_63CA01B5","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oBlockSnake","path":"objects/oBlockSnake/oBlockSnake.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oBlockSnake","path":"objects/oBlockSnake/oBlockSnake.yy",},"propertyId":{"name":"length","path":"objects/oBlockSnake/oBlockSnake.yy",},"value":"5",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oBlockSnake","path":"objects/oBlockSnake/oBlockSnake.yy",},"propertyId":{"name":"spd","path":"objects/oBlockSnake/oBlockSnake.yy",},"value":"1",},
+          ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":320.0,"y":192.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Grass","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":23,"SerialiseWidth":128,"TileCompressedData":[
 -99,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,

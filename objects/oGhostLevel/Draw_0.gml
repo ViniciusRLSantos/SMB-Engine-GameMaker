@@ -11,9 +11,9 @@ if !(instance_exists(oPlayer)) exit;
 
 shader_set(shdLighting);
 shader_set_uniform_f(position, oPlayer.x, oPlayer.y-oPlayer.sprite_height/2);
-shader_set_uniform_f(radius, 75);
-shader_set_uniform_f(lightMargin, 20);
-shader_set_uniform_f(alpha, 0.85);
+shader_set_uniform_f(radius, r);
+shader_set_uniform_f(lightMargin, lm);
+shader_set_uniform_f(alpha, 0.5);
 
 draw_surface(surf, 0, 0);
 shader_reset();
