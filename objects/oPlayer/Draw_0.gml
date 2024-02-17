@@ -1,5 +1,8 @@
+if (state != player_death)
+	draw_sprite_ext(sprite_index, image_index, x, y, dir, 1, 0, noone, 1);
+else
+	draw_sprite_ext(sprite.death, 0, x, y, dir, 1, 0, noone, 1);
 
-draw_sprite_ext(sprite_index, image_index, x, y, dir, 1, 0, noone, 1);
 
 if (hit && state != player_death) {
 	shader_set(shdColorSwap);

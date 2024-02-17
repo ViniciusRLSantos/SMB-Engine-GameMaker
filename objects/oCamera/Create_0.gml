@@ -3,7 +3,7 @@ application_surface_enable(false);
 
 game_width = 480;
 game_height = 270;
-scale = 4;
+scale = 3;
 
 //window_set_fullscreen(true);
 window_set_size(game_width*scale, game_height*scale);

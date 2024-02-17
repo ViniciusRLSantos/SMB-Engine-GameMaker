@@ -5,6 +5,8 @@
 #macro HIT_TIMER room_speed*2
 #macro DESPAWN_TIME room_speed/2
 
+draw_set_font(fntGame);
+
 // Enums
 enum ITEM {
 	MUSHROOM=0,

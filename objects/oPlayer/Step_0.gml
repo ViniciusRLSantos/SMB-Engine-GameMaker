@@ -42,12 +42,13 @@ if (state != player_death) {
 		break;
 	}
 } else {
+	sprite_index = -1;
 	mask_index = -1;
 }
 #endregion
 
 #region Death
-if (y > room_height + 8) {
+if (y > room_height + sprite_height) {
 	if state != player_death {
 		vspd = jumpspd;
 		audio_stop_all();
@@ -56,4 +57,14 @@ if (y > room_height + 8) {
 	}
 	
 }
+
+if (place_meeting(x, y-1, oBlock) && place_meeting(x, y+1, oBlock)) {
+	if state != player_death {
+		vspd = jumpspd;
+		audio_stop_all();
+		audio_play_sound(sndDeath, 10, 0);
+		state = player_death;
+	}
+}
+
 #endregion

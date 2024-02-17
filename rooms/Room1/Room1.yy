@@ -59,6 +59,7 @@
     {"name":"inst_A904D93","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_76719B02","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_63CA01B5","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_12407DE6","path":"rooms/Room1/Room1.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -124,6 +125,11 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oBlockSnake","path":"objects/oBlockSnake/oBlockSnake.yy",},"propertyId":{"name":"length","path":"objects/oBlockSnake/oBlockSnake.yy",},"value":"5",},
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oBlockSnake","path":"objects/oBlockSnake/oBlockSnake.yy",},"propertyId":{"name":"spd","path":"objects/oBlockSnake/oBlockSnake.yy",},"value":"1",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":320.0,"y":192.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_12407DE6","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oMovingPlatform","path":"objects/oMovingPlatform/oMovingPlatform.yy",},"properties":[
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oMovingPlatform","path":"objects/oMovingPlatform/oMovingPlatform.yy",},"propertyId":{"name":"spd","path":"objects/oMovingPlatform/oMovingPlatform.yy",},"value":"1",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oMovingPlatform","path":"objects/oMovingPlatform/oMovingPlatform.yy",},"propertyId":{"name":"mode","path":"objects/oMovingPlatform/oMovingPlatform.yy",},"value":"WaitForPlayer",},
+            {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oMovingPlatform","path":"objects/oMovingPlatform/oMovingPlatform.yy",},"propertyId":{"name":"time_to_activate","path":"objects/oMovingPlatform/oMovingPlatform.yy",},"value":"room_speed/2",},
+          ],"rotation":0.0,"scaleX":2.0,"scaleY":1.0,"x":96.0,"y":208.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Grass","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":23,"SerialiseWidth":128,"TileCompressedData":[
 -99,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,

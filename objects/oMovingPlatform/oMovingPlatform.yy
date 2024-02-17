@@ -7,6 +7,8 @@
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":2,"eventType":3,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,},
+    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
@@ -15,8 +17,8 @@
     "path": "folders/Objects.yy",
   },
   "parentObjectId": {
-    "name": "oBlock",
-    "path": "objects/oBlock/oBlock.yy",
+    "name": "oJumpthrough",
+    "path": "objects/oJumpthrough/oJumpthrough.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -33,8 +35,12 @@
   "physicsStartAwake": true,
   "properties": [
     {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"spd","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"1","varType":0,},
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"loop","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":3,},
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"freeMove","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"True","varType":3,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"time_to_activate","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"room_speed","varType":0,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"mode","filters":[],"listItems":[
+        "FreeMoveLoop",
+        "FreeMoveReturn",
+        "WaitForPlayer",
+      ],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"FreeMoveReturn","varType":6,},
   ],
   "solid": false,
   "spriteId": {

@@ -5,10 +5,9 @@ if (move) {
 	}
 	var _len = array_length(points);
 	var _target_point = target % _len;
-	var _current_point = current % _len;
 	
-	var _dist_x = points[_target_point][0] - x;//points[_current_point][0];
-	var _dist_y = points[_target_point][1] - y;//points[_current_point][1];
+	var _dist_x = points[_target_point][0] - x;
+	var _dist_y = points[_target_point][1] - y;
 	dir = arctan2(_dist_y, _dist_x);
 	hspd = cos(dir)*spd;
 	vspd = sin(dir)*spd;
@@ -20,7 +19,7 @@ if (move) {
 			}
 			
 			if (place_meeting(x, y-1, other) && !place_meeting(x, y, other)) {
-				vspd = 0;
+				y += other.vspd+1;
 			}
 			
 			if (place_meeting(x, y+abs(other.vspd), other) && !place_meeting(x, y, other)) {
@@ -33,6 +32,7 @@ if (move) {
 	if point_distance(x, y, points[_target_point][0], points[_target_point][1]) > spd {
 		x += hspd;
 		y += vspd;
+		
 		var _len = 16*length/spd - 1;
 		for (var i=_len; i>0; i--) {
 			recorded_positions[i] = recorded_positions[i-1];
@@ -43,6 +43,9 @@ if (move) {
 	} else {
 		x = points[_target_point][0];
 		y = points[_target_point][1];
+		current++;
+		target++;
+		
 		var _len = 16*length/spd - 1;
 		for (var i=_len; i>0; i--) {
 			recorded_positions[i] = recorded_positions[i-1];
@@ -50,8 +53,7 @@ if (move) {
 		}
 		recorded_positions[0] = [x, y];
 		recorded_direction[0] = dir;
-		current = target;
-		target++;
+		
 	}
 }
 

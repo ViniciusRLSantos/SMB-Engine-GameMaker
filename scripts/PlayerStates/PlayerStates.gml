@@ -121,7 +121,7 @@ function player_air() {
 	jump_buffer = clamp(jump_buffer, 0, JUMP_BUFFER);
 	coyote_timing = clamp(coyote_timing, 0, COYOTE);
 
-	if (grounded) {
+	if (grounded && vspd >= 0) {
 		coyote_timing = COYOTE;
 		state = player_ground;
 		sprite_index = sprite.idle;
@@ -216,6 +216,7 @@ function shoot_hammer() {
 			audio_play_sound(sndShoot, 10, 0);
 			with(instance_create_depth(x+hspd, y-sprite_height/2, depth-1, oHammer)) {
 				owner = other.id;
+				spd = 2+min(abs(hspd), 2);
 				dir = other.dir;
 				vspd = -7;
 			}

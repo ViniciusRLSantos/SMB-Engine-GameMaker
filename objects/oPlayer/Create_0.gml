@@ -14,9 +14,9 @@ hspd_add = 0;
 jump_buffer = 0;
 coyote_timing = 0;
 
-acc_g = 0.075;
-fric_g = 0.065;
-acc_a = 0.125;
+acc_g = 0.1;
+fric_g = 0.085;
+acc_a = 0.075;
 fric_a = 0.04;
 
 block_strength = 1;

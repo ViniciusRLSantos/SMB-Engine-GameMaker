@@ -26,7 +26,7 @@
     "resourceType": "GMNineSliceData",
     "resourceVersion": "1.0",
     "bottom": 0,
-    "enabled": false,
+    "enabled": true,
     "guideColour": [
       4294902015,
       4294902015,
@@ -48,8 +48,8 @@
   },
   "origin": 4,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "Blocks",
+    "path": "folders/Sprites/Blocks.yy",
   },
   "preMultiplyAlpha": false,
   "sequence": {
