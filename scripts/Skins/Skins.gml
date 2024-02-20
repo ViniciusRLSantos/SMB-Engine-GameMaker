@@ -21,3 +21,8 @@ function BasicEnemySkin(_collision_mask, _idle=noone, _walk, _death, _knocked)
 : Skin(_collision_mask, _idle, _walk, _death) constructor {
 	knocked = _knocked;
 }
+function EnemyBroSkin(_collision_mask, _idle=noone, _walk, _death, _knocked, _grab)
+: Skin(_collision_mask, _idle, _walk, _death) constructor {
+	knocked = _knocked;
+	grab = _grab;
+}

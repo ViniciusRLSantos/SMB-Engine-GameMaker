@@ -5,9 +5,19 @@
 #macro HIT_TIMER room_speed*2
 #macro DESPAWN_TIME room_speed/2
 
+#macro P_DECREASE_ON_WALL	0.0225
+#macro P_DECREASE			0.020
+#macro P_DECREASE_FAST		0.065
+#macro P_INCREASE			0.0175
+
 draw_set_font(fntGame);
 
 // Enums
+enum OWNER {
+	PLAYER,
+	ENEMY
+}
+
 enum ITEM {
 	MUSHROOM=0,
 	FIREFLOWER=1,
@@ -17,9 +27,9 @@ enum ITEM {
 }
 
 enum POWER {
-	MARIODEAD,
-	MARIOMUSH,
-	MARIOFIRE,
-	MARIOLEAF,
-	MARIOHAMMER
+	MARIODEAD=1000,  // Not really a powerup but...
+	MARIOMUSH=0,
+	MARIOFIRE=1,
+	MARIOLEAF=2,
+	MARIOHAMMER=3
 }

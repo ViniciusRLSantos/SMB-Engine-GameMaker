@@ -15,6 +15,10 @@ function FreeMoveLoop() {
 				y += other.vspd;
 				
 			}
+			
+			if (place_meeting(x-other.hspd, y, other) && !place_meeting(x, y, other)) {
+				x += other.hspd*other.is_solid;
+			}
 		}
 	}
 	
@@ -46,6 +50,12 @@ function FreeMoveReturn() {
 				y += other.vspd;
 				
 			}
+			
+			
+			if (place_meeting(x-other.hspd, y, other) && !place_meeting(x, y, other)) {
+				x += other.hspd*other.is_solid;
+			}
+			
 		}
 	}
 	
@@ -85,7 +95,9 @@ function WaitForPlayer() {
 				hspd_add = other.hspd;
 				//x += other.hspd;
 				y += other.vspd;
-				
+			}
+			if (place_meeting(x-other.hspd, y, other) && !place_meeting(x, y, other)) {
+				x += other.hspd*other.is_solid;
 			}
 		}
 	}

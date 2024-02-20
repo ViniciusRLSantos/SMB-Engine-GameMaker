@@ -3,8 +3,16 @@ function player_ground() {
 	get_inputs();
 	#region Movement
 	move = kRight - kLeft;
-	spd = minspd*(!kRun) + maxspd*kRun;
-	if (move != 0) {	
+	//spd = minspd*(!kRun) + maxspd*kRun;
+	
+	if (move != 0) {
+		
+		if (kRun) {
+			spd = approach(spd, 3, P_INCREASE);
+		} else {
+			spd = approach(spd, 2, P_DECREASE);
+		}
+		
 		dir = move;
 		if (move <> sign(hspd)) {
 			if (hspd != 0)  {
@@ -81,17 +89,17 @@ function player_ground() {
 function player_air() {
 	get_inputs();
 	#region Movement
+	//spd = minspd*(!kRun) + maxspd*kRun;
 	move = kRight - kLeft;
-	spd = minspd*(!kRun) + maxspd*kRun;
-
 	if (move != 0) {	
 		dir = move;
-		hspd += move*(acc_a);
+		hspd = approach(hspd, spd*move, acc_a);;
 	} else {
 		hspd = approach(hspd, 0, fric_a);
 	}
-	hspd = clamp(hspd, -spd, spd);
+	
 	if (running) sprite_index = sprite.runjump;
+	
 	if (vspd < 0) {
 		if (!running) sprite_index = sprite.jump;
 		vspd = min(12, vspd + GRAVITY);
@@ -195,7 +203,6 @@ function player_death() {
 #endregion
 
 
-
 #region Power-Ups
 
 function shoot_fireball() {
@@ -203,7 +210,7 @@ function shoot_fireball() {
 		if instance_number(oFireball) < 2 {
 			audio_play_sound(sndShoot, 10, 0);
 			with(instance_create_depth(x+hspd+dir*sprite_width/2, y-sprite_height/2, depth-1, oFireball)) {
-				owner = other.id;
+				owner = OWNER.PLAYER;
 				dir = other.dir;
 			}
 		}
@@ -215,7 +222,7 @@ function shoot_hammer() {
 		if instance_number(oHammer) < 2 {
 			audio_play_sound(sndShoot, 10, 0);
 			with(instance_create_depth(x+hspd, y-sprite_height/2, depth-1, oHammer)) {
-				owner = other.id;
+				owner = OWNER.PLAYER;
 				spd = 2+min(abs(hspd), 2);
 				dir = other.dir;
 				vspd = -7;
@@ -227,26 +234,23 @@ function shoot_hammer() {
 #endregion
 
 
-
 #region Collision Script
 
 
 function move_and_slide() {
-	
+	#region Jumpthrough Slopes (attempt)
 	var _list = ds_list_create();
-
-	var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y-1, oJumpthrough, true, true);
+	var _jumpthrough = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+abs(vspd)+1, oJumpthrough, true, true);
 	var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
 	
-	#region Horizontal Collision
-	var _jumpthrough_list = collision_rectangle_list(bbox_left-abs(hspd), y+abs(vspd)+1,bbox_right+abs(hspd), y-2, oJumpthrough, true, true, _list, false);
+	var _jumpthrough_list = collision_rectangle_list(bbox_left-abs(hspd), bbox_bottom,bbox_right+abs(hspd), bbox_bottom+abs(vspd)+1, oJumpthrough, true, true, _list, false);
 	if (_jumpthrough_list) {
 		for(var i=0; i<_jumpthrough_list; i++) {
-			if (_list[| i].image_angle <> 0) {
+			if (_list[| i].image_angle <> 0 && sign(_list[| i].image_angle) == hdir) {
 				var yplus = 0;
-				while place_meeting(x+hdir*spd, y-yplus, _list[| i]) && yplus <= abs(hspd*2) yplus++;
+				while place_meeting(x+(hdir)*spd, y-yplus, _list[| i]) && yplus <= abs(hspd*2) yplus++;
 				if (hspd <> 0 && !place_meeting(x+hspd, y-yplus, _list[| i])) {
-					y-=yplus;
+					y-=yplus;					
 				}
 			}
 		}
@@ -254,8 +258,11 @@ function move_and_slide() {
 	}
 	ds_list_clear(_list);
 	ds_list_destroy(_list);
+	#endregion
+	
+	#region Horizontal Collision
 	var hspd_final = hspd + hspd_add;
-	var _Hpixel_check = sign(hspd_final);
+	//var _Hpixel_check = sign(hspd_final);
 	hspd_add = 0;
 	
 	if (place_meeting(x+hspd_final, y, oBlock)) {
@@ -263,8 +270,9 @@ function move_and_slide() {
 		while (place_meeting(x+hspd_final, y-yplus, oBlock) && yplus <= abs(hspd_final)) yplus++;
 
 		if (hspd_final <> 0 && place_meeting(x+hspd_final, y-yplus, oBlock) && !place_meeting(x, y, oBlock)) {
-			while !(place_meeting(x+_Hpixel_check, y, oBlock)) {
-				x += _Hpixel_check;
+			while (abs(hspd_final) > 0.1) {
+				hspd_final *= 0.5;
+				if !place_meeting(x+hspd_final, y, oBlock) x+=hspd_final;
 			}
 			hspd_final = 0;
 			hspd = 0;
@@ -274,16 +282,12 @@ function move_and_slide() {
 	}
 	x += hspd_final;
 	#endregion
-	
-	
-	
+		
 	// Descer da rampa
 	if (grounded) && (place_meeting(x, y+abs(hspd)+1, [oBlock, _jumpthrough]) && !place_meeting(x, y, [oBlock, _jumpthrough])) && (vspd >= 0) {
-		vspd += abs(hspd) + 1;
+		vspd += abs(hspd)+1;
 	}
-	
-	
-	
+		
 	#region Vertical Collision	
 	if (vspd <> 0 && place_meeting(x, y+vspd, oBlock)) 
 	|| (_jumpthrough != noone && vspd >= 0 && place_meeting(x, y+abs(vspd), _jumpthrough) && !place_meeting(x, y, _jumpthrough)) {

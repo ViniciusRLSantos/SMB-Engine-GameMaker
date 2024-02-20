@@ -77,7 +77,7 @@ function EnemyWalk(){
 	switch (can_fall) {
 		case true:
 			if (grounded) && (place_meeting(x, y+abs(hspd)+1, [oBlock, _jumpthrough])) && (vspd >= 0) {
-				vspd += abs(hspd) + 1;
+				vspd += abs(hspd)+1;
 			}
 		break;
 		case false:
