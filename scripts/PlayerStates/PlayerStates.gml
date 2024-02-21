@@ -3,7 +3,6 @@ function player_ground() {
 	get_inputs();
 	#region Movement
 	move = kRight - kLeft;
-	//spd = minspd*(!kRun) + maxspd*kRun;
 	
 	if (move != 0) {
 		
@@ -16,7 +15,6 @@ function player_ground() {
 		dir = move;
 		if (move <> sign(hspd)) {
 			if (hspd != 0)  {
-				sprite_index = sprite.turn;
 				if !(audio_is_playing(sndSkid)) audio_play_sound(sndSkid, 10, 0);
 				if !layer_exists("SkidParticle") layer_create(-100, "SkidParticle")
 				var _p = part_system_create(partSkid);
@@ -24,12 +22,9 @@ function player_ground() {
 				part_system_position(_p, x, y);
 			}
 		} else {
-			image_speed = abs(hspd)/spd;
 			if abs(hspd) == maxspd {
-				sprite_index = sprite.run;
 				running = true;
 			} else {
-				sprite_index = sprite.walk;
 				running = false;
 			}
 		}
@@ -38,8 +33,6 @@ function player_ground() {
 		hspd = approach(hspd, 0, fric_g);
 		running = false;
 	}
-	
-	if (round(hspd) == 0) sprite_index = sprite.idle;
 
 	if (vspd < 0) {
 		vspd = min(12, vspd + GRAVITY);
@@ -48,6 +41,7 @@ function player_ground() {
 	}
 	#endregion
 	
+	ApplyPlayerSprites();
 	
 	#region Jumping
 	var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y, oJumpthrough, true, true);
@@ -98,17 +92,15 @@ function player_air() {
 		hspd = approach(hspd, 0, fric_a);
 	}
 	
-	if (running) sprite_index = sprite.runjump;
 	
 	if (vspd < 0) {
-		if (!running) sprite_index = sprite.jump;
 		vspd = min(12, vspd + GRAVITY);
 	} else {
-		if (!running) sprite_index = sprite.fall;
 		vspd = min(12, vspd + GRAVITY*2);
 	}
 	#endregion
 	
+	ApplyPlayerSprites();
 	
 	#region Jumping
 	var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y, oJumpthrough, true, true);
@@ -227,6 +219,80 @@ function shoot_hammer() {
 				dir = other.dir;
 				vspd = -7;
 			}
+		}
+	}
+}
+
+#endregion
+
+
+#region Apply Sprites
+
+function ApplyPlayerSprites() {
+	get_inputs();
+	move = kRight - kLeft;
+	if (carry == CARRY.NOTHING) {
+		
+		var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y, oJumpthrough, true, true);
+		var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
+		
+		kick_frames = max(0, kick_frames-1);
+		if (kick_frames > 0) {
+			sprite_index = sprite.kick;
+		}
+		
+		if (grounded && kick_frames <= 0) {
+			if (move != 0) {
+				if (move <> sign(hspd)) {
+					sprite_index = sprite.turn;
+				} else {
+					image_speed = abs(hspd)/minspd;
+					if !(running) {
+						sprite_index = sprite.walk;
+					} else {
+						sprite_index = sprite.run;
+					}
+				}
+			}
+			
+			if (abs(hspd) == 0) sprite_index = sprite.idle;
+		} else if (kick_frames <= 0) {
+			if !(running) 
+				sprite_index = sprite.jump;
+			else
+				sprite_index = sprite.runjump;
+		}
+	} else {
+		var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y, oJumpthrough, true, true);
+		var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
+		
+		sprite_index = sprite.carry;
+		if (grounded) {
+			if (move != 0) {
+				image_speed = abs(hspd)/minspd;
+			}
+			if (abs(hspd) == 0) {
+				image_speed = 0;
+				image_index = 0;
+			}
+		} else {
+			image_speed = 0;
+			image_index = image_number-1;
+		}
+		if (!kRun) {
+			kick_frames = KICK_SPRITE_FRAMES;
+			switch(carry) {
+				default:
+					var _offset = 4;
+					with(instance_create_depth(x+dir*(_offset + sprite_width/2), y-sprite_height/5, depth+1, oShell)) {
+						type = other.carry;
+						dir = other.dir;
+						moving = true;
+						audio_play_sound(sndKnock, 10, 0);
+					}
+				break;
+			}
+			carry = CARRY.NOTHING;
 		}
 	}
 }

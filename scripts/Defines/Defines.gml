@@ -1,9 +1,12 @@
 // Constants
-#macro GRAVITY 0.15
-#macro COYOTE 5
-#macro JUMP_BUFFER 8
-#macro HIT_TIMER room_speed*2
-#macro DESPAWN_TIME room_speed/2
+#macro GRAVITY				0.15
+#macro TERMINAL_VELOCITY	16
+#macro COYOTE				5
+#macro JUMP_BUFFER			8
+#macro HIT_TIMER			room_speed*2
+#macro DESPAWN_TIME			room_speed/2
+
+#macro KICK_SPRITE_FRAMES	15
 
 #macro P_DECREASE_ON_WALL	0.0225
 #macro P_DECREASE			0.020
@@ -32,4 +35,13 @@ enum POWER {
 	MARIOFIRE=1,
 	MARIOLEAF=2,
 	MARIOHAMMER=3
+}
+
+enum CARRY {
+	NOTHING,
+	GREENSHELL,
+	REDSHELL,
+	BEETLESHELL,
+	BLUEBRICK,
+	SPRING
 }

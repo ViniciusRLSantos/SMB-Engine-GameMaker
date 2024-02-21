@@ -9,4 +9,4 @@ sprite = new BasicEnemySkin(
 	sGreenKoopaKnocked
 );
 
-shell_sprite = sGreenKoopaShell;
+shell = CARRY.GREENSHELL;

@@ -122,7 +122,7 @@ function EnemyStomped() {
 
 function SwapToShell() {
 	with (instance_create_depth(x, y, depth-1, oShell)) {
-		sprite_index = other.shell_sprite;
+		type = other.shell;
 	}
 	instance_destroy();
 }

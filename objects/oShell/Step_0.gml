@@ -26,9 +26,18 @@ if (instance_exists(oPlayer)) {
 	with (oPlayer) {
 		if (hspd <> 0) {
 			if (place_meeting(x+hspd, y, other) && !other.moving) {
-				other.dir = sign(other.x - x);
-				other.moving = true;
-				audio_play_sound(sndKnock, 10, 0);
+				if (!kRun || carry != CARRY.NOTHING) {
+					kick_frames = KICK_SPRITE_FRAMES;
+					other.dir = sign(other.x - x);
+					other.moving = true;
+					audio_play_sound(sndKnock, 10, 0);
+				} else {
+					if (carry == CARRY.NOTHING) {
+						instance_destroy(other);
+						audio_play_sound(sndPickup, 10, 0);
+						carry = other.type;
+					}
+				}
 			}
 		}
 	}

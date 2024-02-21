@@ -5,7 +5,7 @@ function Skin(_collision_mask, _idle, _walk, _death) constructor {
 	death = _death;
 }
 
-function MarioSkin(_collision_mask, _idle, _walk, _death, _duck, _jump, _fall, _run, _swim, _turn, _climb, _runjump, _attack=noone) 
+function MarioSkin(_collision_mask, _idle, _walk, _death, _duck, _jump, _fall, _run, _swim, _turn, _climb, _runjump, _carry, _kick, _attack=noone) 
 : Skin(_collision_mask, _idle, _walk, _death) constructor {
 	jump = _jump;
 	fall = _fall;
@@ -14,6 +14,8 @@ function MarioSkin(_collision_mask, _idle, _walk, _death, _duck, _jump, _fall, _
 	turn = _turn;
 	climb = _climb;
 	runjump = _runjump;
+	carry = _carry;
+	kick = _kick;
 	attack = _attack;
 }
 

@@ -3,10 +3,13 @@ maxspd = 3;
 spd = 2;
 climb_spd = 1;
 
+carry = CARRY.NOTHING;
+running = false;
+kick_frames = 0;
+
 hspd = 0;
 vspd = 0;
 jumpspd = -5;
-running = false;
 dir = 1;
 hdir = 1;
 hspd_add = 0;
@@ -16,8 +19,8 @@ coyote_timing = 0;
 
 acc_g = 0.085;
 fric_g = 0.045;
-acc_a = 0.15;
-fric_a = 0.02;
+acc_a = 0.080;
+fric_a = 0.030;
 
 block_strength = 1;
 hp = 1;
@@ -38,7 +41,9 @@ MiniSkin = new MarioSkin(
 	sMiniMarioSwim,
 	sMiniMarioTurn,
 	sMiniMarioClimb,
-	sMiniMarioRunJump
+	sMiniMarioRunJump,
+	sMiniMarioCarry,
+	sMiniMarioKick
 );
 BigSkin = new MarioSkin(
 	maskMarioBig,
@@ -52,7 +57,9 @@ BigSkin = new MarioSkin(
 	sBigMarioSwim,
 	sBigMarioTurn,
 	sBigMarioClimb,
-	sBigMarioRunJump
+	sBigMarioRunJump,
+	sBigMarioCarry,
+	sBigMarioKick
 );
 
 FireSkin = new MarioSkin(
@@ -67,7 +74,9 @@ FireSkin = new MarioSkin(
 	sFireMarioSwim,
 	sFireMarioTurn,
 	sFireMarioClimb,
-	sFireMarioRunJump
+	sFireMarioRunJump,
+	sFireMarioCarry,
+	sFireMarioKick
 );
 
 HammerSkin = new MarioSkin(
@@ -82,7 +91,9 @@ HammerSkin = new MarioSkin(
 	sHammerMarioSwim,
 	sHammerMarioTurn,
 	sHammerMarioClimb,
-	sHammerMarioRunJump
+	sHammerMarioRunJump,
+	sHammerMarioCarry,
+	sHammerMarioKick
 );
 #endregion
 

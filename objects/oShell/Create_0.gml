@@ -5,3 +5,5 @@ vspd = 0;
 hspd = 0;
 spd = 4;
 moving = false;
+
+type = CARRY.GREENSHELL;
