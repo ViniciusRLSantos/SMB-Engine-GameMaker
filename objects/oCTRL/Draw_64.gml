@@ -1,7 +1,7 @@
 #region Draw Held Item
 var xx = camera_get_view_width(view_camera[0])/2;
 var yy = 24;
-draw_sprite(sItemFrame, 0, xx, yy);
+draw_sprite(sItemFrame, 0, floor(xx), yy);
 if global.hold_item != noone {
 	switch(global.hold_item) {
 		case POWER.MARIOMUSH:
@@ -22,7 +22,6 @@ if global.hold_item != noone {
 	}
 }
 #endregion
-
 /*var xx = 16, yy = display_get_gui_height()-24;
 
 if (global.pmeter >= global.maxPmeter) {

@@ -1,0 +1,1 @@
+if room != rmTestMovingPlatforms room_goto(rmTestMovingPlatforms);

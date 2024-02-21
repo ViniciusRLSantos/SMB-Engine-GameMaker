@@ -1,0 +1,1 @@
+if room != rmGhostHouse room_goto(rmGhostHouse);

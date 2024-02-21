@@ -100,7 +100,7 @@ function ItemCollideWithPlayer() {
 						if (hp == 1) {
 							powerUp = POWER.MARIOMUSH;
 							audio_play_sound(sndPowerUp, 10, 0);
-						} else {
+						} else if (state != ItemFromFrame){
 							global.hold_item = POWER.MARIOMUSH;
 							audio_play_sound(sndHoldItem, 10, 0);
 						}
@@ -110,21 +110,21 @@ function ItemCollideWithPlayer() {
 				break;
 				case 1:
 					with (oPlayer) {
-						global.hold_item = powerUp;
+						if (hp > 1) global.hold_item = powerUp;
 						powerUp = POWER.MARIOFIRE;
 					}
 					audio_play_sound(sndPowerUp, 10, 0);
 				break;
 				case 2:
 					with (oPlayer) {
-						global.hold_item = powerUp;
+						if (hp > 1) global.hold_item = powerUp;
 						powerUp = POWER.MARIOLEAF;
 					}
 					audio_play_sound(sndPowerUp, 10, 0);
 				break;
 				case 3:
 					with (oPlayer) {
-						global.hold_item = powerUp;
+						if (hp > 1) global.hold_item = powerUp;
 						powerUp = POWER.MARIOHAMMER;
 					}
 					audio_play_sound(sndPowerUp, 10, 0);

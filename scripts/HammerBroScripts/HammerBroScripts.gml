@@ -16,7 +16,7 @@ function HammerBroWander() {
 	
 	#region Throw timer
 	throw_timer--;
-	if (throw_timer < 15) {
+	if (throw_timer < 20) {
 		if (sprite_index == sprite.walk) {
 			var _stored_index = image_index;
 			sprite_index = sprite.grab;
@@ -24,6 +24,7 @@ function HammerBroWander() {
 		}
 		
 		if (throw_timer <= 0) {
+			audio_play_sound(sndHammerThrow, 10, 0);
 			with (instance_create_depth(x, y, depth-1, oHammer)) {
 				owner = OWNER.ENEMY;
 				spd = random_range(1, 2);
@@ -46,7 +47,7 @@ function HammerBroWander() {
 	if (jump_timer <= 0) {
 		if (jumped) y+=3; else vspd = jumpspd;
 		jumped = !jumped;
-		jump_timer = irandom_range(room_speed/2, room_speed*5);
+		jump_timer = irandom_range(room_speed*1.5, room_speed*5);
 	}
 	#endregion
 	

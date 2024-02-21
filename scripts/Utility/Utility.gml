@@ -44,10 +44,7 @@ function kill_player() {
 			
 			alarm[0] = HIT_TIMER;
 					
-			if (hp > 2) {
-				audio_play_sound(sndPowerDown, 10, 0);
-				powerUp = POWER.MARIOMUSH;
-			} else if (hp == 2) {
+			if (hp > 1) {
 				powerUp = noone;
 				audio_play_sound(sndPowerDown, 10, 0);
 			} else {
@@ -59,4 +56,19 @@ function kill_player() {
 			}
 		}
 	}
+}
+
+
+function outline_begin(width=1, height=1, color=[0, 0, 0]) {
+	shader_set(shdOutline);
+	var _color = shader_get_uniform(shdOutline, "outlineColor");
+	var _width = shader_get_uniform(shdOutline, "outlineW");
+	var _height = shader_get_uniform(shdOutline, "outlineH");
+	shader_set_uniform_f(_color, color[0], color[1], color[2], 1.0);
+	shader_set_uniform_f(_width, width);
+	shader_set_uniform_f(_height, height);
+}
+
+function outline_end() {
+	shader_reset();
 }

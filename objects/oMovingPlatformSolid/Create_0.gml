@@ -1,4 +1,4 @@
-points = [];
+opoints = [];
 target = 0;
 current = 0;
 if (array_length(points) > 1) {
