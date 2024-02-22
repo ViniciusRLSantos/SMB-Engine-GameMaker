@@ -1,6 +1,7 @@
 
 
 if (entering) {
+	// Going in
 	var rate = 0.5;
 	switch (side) {
 		case SIDE.RIGHT:
@@ -10,7 +11,7 @@ if (entering) {
 				width = sprite_width;
 				height = sprite_height;
 			}
-			x = approach(x, xstart+width, rate);
+			x = approach(x, xstart+sprite_width, rate);
 			width = approach(width, 0, rate);
 		break;
 		
@@ -22,7 +23,7 @@ if (entering) {
 				height = sprite_height;
 			}
 			x = approach(x, xstart-width, rate);
-			left = approach(left, width, rate);
+			width = approach(width, 0, rate);
 		break;
 		
 		case SIDE.DOWN:
@@ -32,7 +33,7 @@ if (entering) {
 				width = sprite_width;
 				height = sprite_height;
 			}
-			y = approach(y, ystart+height, rate);
+			y = approach(y, starty+sprite_height, rate);
 			height = approach(height, 0, rate);
 		break;
 		
@@ -43,8 +44,8 @@ if (entering) {
 				width = sprite_width;
 				height = sprite_height;
 			}
-			y = approach(y, ystart-height, rate);
-			top = approach(top, height, rate);
+			y = approach(y, starty-sprite_height, rate);
+			height = approach(height, 0, rate);
 		break;
 	}
 }

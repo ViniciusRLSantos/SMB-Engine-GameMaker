@@ -1,4 +1,4 @@
-entering = false;
+entering = true;
 room_to = noone;
 current_sprite = noone
 
@@ -50,7 +50,9 @@ top = 0;
 set_vars = false;
 
 if instance_exists(oPlayer) {
-	x = oPlayer.x-8;
-	y = oPlayer.y-sprite_height;
+	x = oPlayer.x;
+	y = oPlayer.y;
 }
+startx = x;
+starty = y;
 alarm[0] = room_speed;
