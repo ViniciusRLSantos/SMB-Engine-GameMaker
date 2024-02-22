@@ -45,3 +45,10 @@ enum CARRY {
 	BLUEBRICK,
 	SPRING
 }
+
+enum SIDE {
+	RIGHT,
+	UP,
+	LEFT,
+	DOWN
+}

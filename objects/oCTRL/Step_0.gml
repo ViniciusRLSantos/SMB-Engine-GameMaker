@@ -1,3 +1,5 @@
+view_surface_id[0] = view_get_surface_id(0);
+
 #region Spawn Held Item
 var kSpawnItem = keyboard_check_pressed(vk_shift);
 if (kSpawnItem && global.hold_item != noone) {

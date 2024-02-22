@@ -1,3 +1,5 @@
+//surface_set_target(view_get_surface_id(0));
+
 #region Draw Held Item
 var xx = camera_get_view_width(view_camera[0])/2;
 var yy = 24;
@@ -22,6 +24,8 @@ if global.hold_item != noone {
 	}
 }
 #endregion
+
+//surface_reset_target();
 /*var xx = 16, yy = display_get_gui_height()-24;
 
 if (global.pmeter >= global.maxPmeter) {

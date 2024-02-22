@@ -28,3 +28,8 @@ function EnemyBroSkin(_collision_mask, _idle=noone, _walk, _death, _knocked, _gr
 	knocked = _knocked;
 	grab = _grab;
 }
+
+function PipeSkin(_front, _sideways) constructor {
+	front = _front;
+	sideways = _sideways;
+}
