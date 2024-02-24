@@ -6912,7 +6912,7 @@
         1493,
       ],},
   ],
-  "tileAnimationSpeed": 8.0,
+  "tileAnimationSpeed": 4.0,
   "tileHeight": 16,
   "tilehsep": 1,
   "tilevsep": 1,

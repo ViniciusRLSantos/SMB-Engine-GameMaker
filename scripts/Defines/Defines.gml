@@ -1,4 +1,7 @@
 // Constants
+#macro RESOLUTION_W			480
+#macro RESOLUTION_H			270
+
 #macro GRAVITY				0.15
 #macro TERMINAL_VELOCITY	16
 #macro COYOTE				5
@@ -13,6 +16,9 @@
 #macro P_DECREASE_FAST		0.065
 #macro P_INCREASE			0.0175
 
+#macro CELL_SIZE 16
+
+// Define main font for the game
 draw_set_font(fntGame);
 
 // Enums
@@ -51,4 +57,9 @@ enum SIDE {
 	UP,
 	LEFT,
 	DOWN
+}
+
+enum TRANSITION {
+	PIXELATE,
+	FADE
 }

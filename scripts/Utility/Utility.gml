@@ -51,7 +51,7 @@ function kill_player() {
 				audio_stop_all();
 				audio_play_sound(sndDeath, 10, 0);
 				vspd = jumpspd;
-				oCamera.target = noone;
+				oNewCamera.target = noone;
 				state = player_death;
 			}
 		}

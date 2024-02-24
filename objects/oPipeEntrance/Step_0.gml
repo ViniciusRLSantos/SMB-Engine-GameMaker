@@ -4,10 +4,11 @@ switch(enter_side) {
 		if (place_meeting(x-1, y, oPlayer) && keyboard_check(vk_right)) {
 			with(instance_create_depth(x, y, depth, oMarioPipe, {side: enter_side, current_powerup: oPlayer.powerUp, dir: 1})) {
 				entering = true;
-				//current_powerup = oPlayer.powerUp;
-				//side = other.enter_side;
+				current_powerup = oPlayer.powerUp;
+				side = other.enter_side;
 				room_to = other.room_target;
 			}
+			audio_play_sound(sndPipe, 10, 0);
 			instance_destroy(oPlayer);
 		}
 	break;
@@ -20,6 +21,7 @@ switch(enter_side) {
 				side = other.enter_side;
 				room_to = other.room_target;
 			}
+			audio_play_sound(sndPipe, 10, 0);
 			instance_destroy(oPlayer);
 		}
 	break;
@@ -32,6 +34,7 @@ switch(enter_side) {
 				side = other.enter_side;
 				room_to = other.room_target;
 			}
+			audio_play_sound(sndPipe, 10, 0);
 			instance_destroy(oPlayer);
 		}
 	break;
@@ -44,6 +47,7 @@ switch(enter_side) {
 				side = other.enter_side;
 				room_to = other.room_target;
 			}
+			audio_play_sound(sndPipe, 10, 0);
 			instance_destroy(oPlayer);
 		}
 	break;

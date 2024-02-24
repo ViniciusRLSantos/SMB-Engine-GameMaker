@@ -184,7 +184,10 @@ function player_death() {
 	vspd += GRAVITY;
 	sprite_index = sprite.death;
 	audio_stop_sound(mOverworld);
-	with (oCamera) {
+	/*with (oCamera) {
+		target = noone;
+	}*/
+	with (oNewCamera) {
 		target = noone;
 	}
 	if (!audio_is_playing(sndDeath)) {

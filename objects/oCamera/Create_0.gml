@@ -1,8 +1,8 @@
 application_surface_enable(false);
 
 
-game_width = 480;
-game_height = 270;
+game_width = RESOLUTION_W;
+game_height = RESOLUTION_H;
 scale = 3;
 
 //window_set_fullscreen(true);
@@ -14,7 +14,7 @@ display_set_gui_size(game_width, game_height);
 camera_set_view_size(view_camera[0], game_width + 1, game_height + 1);
 zoom = 1;
 zoom_to = 1;
-view_surf = -1;
+global.view_surf = -1;
 xTo = 0;
 yTo = 0;
 

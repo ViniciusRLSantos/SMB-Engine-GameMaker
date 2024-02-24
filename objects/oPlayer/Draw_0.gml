@@ -7,7 +7,11 @@ if (state != player_death) {
 			draw_sprite_ext(sRedKoopaShell, 0, x+dir*sprite_width/2, y-sprite_height/10, dir, 1, 0, c_white, 1);
 		break;
 	}
+	shader_set(shdPixelate);
+	var amount = shader_get_uniform(shdPixelate, "amount");
+	shader_set_uniform_f(amount, 4)
 	draw_sprite_ext(sprite_index, image_index, x, y, dir, 1, 0, noone, 1);
+	shader_reset();
 } else {
 	draw_sprite_ext(sprite.death, 0, x, y, dir, 1, 0, noone, 1);
 }

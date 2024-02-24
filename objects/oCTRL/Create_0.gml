@@ -1,4 +1,4 @@
-
+global.start_powerup = noone;
 global.hold_item = noone;
 
 global.lives = 5;
