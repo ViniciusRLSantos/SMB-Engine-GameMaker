@@ -62,6 +62,9 @@
     {"name":"inst_4A523659","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_5CE2B49F","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_736EB8A4","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_27BE59F1","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_59EC2D42","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_7870B09D","path":"rooms/Room1/Room1.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -133,6 +136,9 @@
             {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"oPipeEntrance","path":"objects/oPipeEntrance/oPipeEntrance.yy",},"propertyId":{"name":"room_target","path":"objects/oPipeEntrance/oPipeEntrance.yy",},"value":"Room1",},
           ],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":384.0,"y":272.0,},
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_5CE2B49F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oBlock","path":"objects/oBlock/oBlock.yy",},"properties":[],"rotation":0.0,"scaleX":2.0,"scaleY":2.0,"x":384.0,"y":256.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_27BE59F1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oJumpthrough","path":"objects/oJumpthrough/oJumpthrough.yy",},"properties":[],"rotation":45.0,"scaleX":12.0,"scaleY":1.0,"x":272.0,"y":232.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_59EC2D42","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oJumpthrough","path":"objects/oJumpthrough/oJumpthrough.yy",},"properties":[],"rotation":0.0,"scaleX":12.0,"scaleY":1.0,"x":224.0,"y":160.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_7870B09D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"oJumpthrough","path":"objects/oJumpthrough/oJumpthrough.yy",},"properties":[],"rotation":0.0,"scaleX":12.0,"scaleY":1.0,"x":304.0,"y":96.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRTileLayer","resourceVersion":"1.1","name":"Grass","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"properties":[],"tiles":{"SerialiseHeight":23,"SerialiseWidth":128,"TileCompressedData":[
 -99,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,11,188,0,189,0,188,0,0,189,0,0,188,-3,0,1,189,-113,0,

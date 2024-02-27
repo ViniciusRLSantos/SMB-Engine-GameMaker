@@ -3,7 +3,7 @@
 #macro RESOLUTION_H			270
 
 #macro GRAVITY				0.15
-#macro TERMINAL_VELOCITY	16
+#macro TERMINAL_VELOCITY	10
 #macro COYOTE				5
 #macro JUMP_BUFFER			8
 #macro HIT_TIMER			room_speed*2

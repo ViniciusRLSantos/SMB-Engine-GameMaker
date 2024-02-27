@@ -58,7 +58,7 @@ if (y > room_height + sprite_height) {
 	
 }
 
-if (place_meeting(x, y-1, oBlock) && place_meeting(x, y+1, oBlock)) {
+if (position_meeting(x, bbox_bottom+1, oBlock) && position_meeting(x, bbox_top-1, oBlock)) {
 	if state != player_death {
 		vspd = jumpspd;
 		audio_stop_all();
@@ -66,5 +66,6 @@ if (place_meeting(x, y-1, oBlock) && place_meeting(x, y+1, oBlock)) {
 		state = player_death;
 	}
 }
+
 
 #endregion

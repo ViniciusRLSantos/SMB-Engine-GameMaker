@@ -37,7 +37,7 @@ if (surface_exists(global.view_surf)) {
 	//draw_surface(view_surf, -frac(ax), -frac(ay));
 }
 gpu_set_blendenable(true);
-
+/*
 if (debug_mode) {
 	//outline_begin();
 	draw_text(16, 16, $"Filter: {bool(filter)}");

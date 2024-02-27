@@ -1,1 +1,1 @@
-visible = debug_mode;
+event_inherited();

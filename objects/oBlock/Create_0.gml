@@ -1,2 +1,5 @@
 visible = debug_mode;
-if (debug_mode) sprite_index = sDebugBlock;
+
+hspd = 0;
+vspd = 0;
+touching = false;

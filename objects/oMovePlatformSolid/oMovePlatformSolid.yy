@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oMovingPlatformJumpthrough",
+  "name": "oMovePlatformSolid",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
@@ -17,8 +17,8 @@
     "path": "folders/Objects.yy",
   },
   "parentObjectId": {
-    "name": "oJumpthrough",
-    "path": "objects/oJumpthrough/oJumpthrough.yy",
+    "name": "oBlock",
+    "path": "objects/oBlock/oBlock.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -41,11 +41,12 @@
         "FreeMoveReturn",
         "WaitForPlayer",
       ],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"FreeMoveReturn","varType":6,},
+    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"is_solid","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"True","varType":3,},
   ],
   "solid": false,
   "spriteId": {
-    "name": "sPlatform",
-    "path": "sprites/sPlatform/sPlatform.yy",
+    "name": "sPlatform2",
+    "path": "sprites/sPlatform2/sPlatform2.yy",
   },
   "spriteMaskId": null,
   "visible": true,

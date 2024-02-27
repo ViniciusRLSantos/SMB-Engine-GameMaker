@@ -7,7 +7,7 @@ function FreeMoveLoop() {
 	dir = arctan2(_dist_y, _dist_x);
 	hspd = cos(dir)*spd;
 	vspd = sin(dir)*spd;
-	
+	/*
 	if instance_exists(oPlayer) {
 		with (oPlayer) {
 			if (place_meeting(x, y+abs(other.vspd)+1, other) && !place_meeting(x, y, other)) {
@@ -21,7 +21,7 @@ function FreeMoveLoop() {
 			}
 		}
 	}
-	
+	*/
 	if point_distance(x, y, points[_target_point][0], points[_target_point][1]) > spd {
 		x += hspd;
 		y += vspd;
@@ -41,7 +41,7 @@ function FreeMoveReturn() {
 	dir = arctan2(_dist_y, _dist_x);
 	hspd = cos(dir)*spd;
 	vspd = sin(dir)*spd;
-	
+	/*
 	if instance_exists(oPlayer) {
 		with (oPlayer) {
 			if (place_meeting(x, y+abs(other.vspd)+1, other) && !place_meeting(x, y, other)) {
@@ -58,7 +58,7 @@ function FreeMoveReturn() {
 			
 		}
 	}
-	
+	*/
 	if point_distance(x, y, points[_target_point][0], points[_target_point][1]) > spd {
 		x += hspd;
 		y += vspd;
@@ -88,7 +88,7 @@ function WaitForPlayer() {
 	dir = arctan2(_dist_y, _dist_x);
 	hspd = cos(dir)*spd;
 	vspd = sin(dir)*spd;
-	
+	/*
 	if instance_exists(oPlayer) {
 		with (oPlayer) {
 			if (place_meeting(x, y+abs(other.vspd)+1, other) && !place_meeting(x, y, other)) {
@@ -101,7 +101,7 @@ function WaitForPlayer() {
 			}
 		}
 	}
-	
+	*/
 	if point_distance(x, y, points[_target_point][0], points[_target_point][1]) > spd {
 		x += hspd;
 		y += vspd;
@@ -121,6 +121,7 @@ function WaitForPlayer() {
 function FallDown() {
 	hspd = 0;
 	vspd = min(16, vspd + GRAVITY);
+	/*
 	if instance_exists(oPlayer) {
 		with (oPlayer) {
 			if (place_meeting(x, y+abs(other.vspd)+1, other) && 
@@ -131,6 +132,7 @@ function FallDown() {
 			}
 		}
 	}
+	*/
 	if !in_view_y(sprite_height) {
 		if (debug_mode) {
 			can_move = false;

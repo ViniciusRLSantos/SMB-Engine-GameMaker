@@ -1,3 +1,5 @@
+hspd = 0;
+vspd = 0;
 bonked = false;
 offset = 6;
 index = 0;

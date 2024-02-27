@@ -49,16 +49,17 @@ if !(moving) {
 	if (_level != noone) {
 		if (keyboard_check_pressed(ord("Z")) && !world_select) {
 			if (room_exists(_level.level)) {
-				//room_goto(_level.level);
-				world_select = true;
 				audio_play_sound(sndLevelSelect, 10, 0);
+				room_goto(_level.level);
+				world_select = true;
+				
 				//tfx_room_goto(_level.level);
 				//if !(layer_exists("Transition")) layer_create(-500, "Transition");
-				with(oTransition) {
+				/*with(oTransition) {
 					target_room = _level.level;
 					transition = true;
 				}
-				
+				*/
 			}
 			else
 				show_debug_message("Essa fase não existe")

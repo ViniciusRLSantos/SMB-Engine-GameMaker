@@ -1,19 +1,21 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "oBlock",
+  "name": "oSnakeEnd",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":1,"eventType":3,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
   ],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Colliders",
-    "path": "folders/Objects/Colliders.yy",
+    "name": "Special Blocks",
+    "path": "folders/Objects/Special Blocks.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "oBlock",
+    "path": "objects/oBlock/oBlock.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
@@ -30,9 +32,9 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sBlock",
-    "path": "sprites/sBlock/sBlock.yy",
+    "name": "sSnake",
+    "path": "sprites/sSnake/sSnake.yy",
   },
   "spriteMaskId": null,
-  "visible": false,
+  "visible": true,
 }

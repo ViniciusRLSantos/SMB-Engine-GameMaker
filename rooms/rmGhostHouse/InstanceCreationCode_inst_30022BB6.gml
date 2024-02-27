@@ -15,4 +15,4 @@ points = [
 	[xstart+16*59, ystart+16],
 	[xstart+16*59, ystart+1000]
 	
-]
+];

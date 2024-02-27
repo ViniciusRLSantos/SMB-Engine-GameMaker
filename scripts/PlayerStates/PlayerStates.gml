@@ -35,23 +35,22 @@ function player_ground() {
 	}
 
 	if (vspd < 0) {
-		vspd = min(12, vspd + GRAVITY);
+		vspd = min(TERMINAL_VELOCITY, vspd + GRAVITY);
 	} else {
-		vspd = min(12, vspd + GRAVITY*2);
+		vspd = min(TERMINAL_VELOCITY, vspd + GRAVITY*2);
 	}
 	#endregion
 	
 	ApplyPlayerSprites();
 	
 	#region Jumping
-	var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y, oJumpthrough, true, true);
-	var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
 	jump_buffer--;
 	if (!grounded) {
 		coyote_timing--;
 	
 		if (kJump) {
 			jump_buffer = JUMP_BUFFER;
+			
 		}
 	
 		if (vspd < 0 && kJumpReleased) {
@@ -70,14 +69,15 @@ function player_ground() {
 
 	if ((coyote_timing > 0 && kJump) or (jump_buffer > 0 && grounded)) {
 		vspd = jumpspd;
+		
 		audio_play_sound(sndJump, 10, 0);
+		setGrounded(false);
 	}
 	#endregion
 	
 	can_climb();
 	
 	move_and_slide();
-	
 }
 
 function player_air() {
@@ -94,17 +94,15 @@ function player_air() {
 	
 	
 	if (vspd < 0) {
-		vspd = min(12, vspd + GRAVITY);
+		vspd = min(TERMINAL_VELOCITY, vspd + GRAVITY);
 	} else {
-		vspd = min(12, vspd + GRAVITY*2);
+		vspd = min(TERMINAL_VELOCITY, vspd + GRAVITY*2);
 	}
 	#endregion
 	
-	ApplyPlayerSprites();
-	
 	#region Jumping
-	var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y, oJumpthrough, true, true);
-	var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
+	//var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y, oJumpthrough, true, true);
+	//var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
 	jump_buffer--;
 	if (!grounded) {
 		coyote_timing--;
@@ -130,6 +128,7 @@ function player_air() {
 	if ((coyote_timing > 0 && kJump) or (jump_buffer > 0 && grounded)) {
 		vspd = jumpspd;
 		audio_play_sound(sndJump, 10, 0);
+		setGrounded(false);
 	}
 	#endregion
 	
@@ -137,6 +136,7 @@ function player_air() {
 	
 	move_and_slide();
 	
+	ApplyPlayerSprites();
 }
 
 function player_climb() {
@@ -236,19 +236,19 @@ function ApplyPlayerSprites() {
 	move = kRight - kLeft;
 	if (carry == CARRY.NOTHING) {
 		
-		var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y, oJumpthrough, true, true);
-		var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
+		//var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y, oJumpthrough, true, true);
+		//var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
 		
 		kick_frames = max(0, kick_frames-1);
 		if (kick_frames > 0) {
 			sprite_index = sprite.kick;
 		}
 		
-		if (grounded && kick_frames <= 0) {
+		if (grounded && kick_frames <= 0 && vspd >= 0) {
 			if (move != 0) {
 				if (move <> sign(hspd)) {
 					sprite_index = sprite.turn;
-				} else {
+				} else if (abs(hspd) > 0) {
 					image_speed = abs(hspd)/minspd;
 					if !(running) {
 						sprite_index = sprite.walk;
@@ -266,13 +266,13 @@ function ApplyPlayerSprites() {
 				sprite_index = sprite.runjump;
 		}
 	} else {
-		var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y, oJumpthrough, true, true);
-		var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
+		// var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y, oJumpthrough, true, true);
+		// var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
 		
 		sprite_index = sprite.carry;
-		if (grounded) {
+		if (grounded && vspd >= 0) {
 			if (move != 0) {
-				image_speed = abs(hspd)/minspd;
+				 if (abs(hspd) > 0) image_speed = abs(hspd)/minspd;
 			}
 			if (abs(hspd) == 0) {
 				image_speed = 0;
@@ -304,28 +304,20 @@ function ApplyPlayerSprites() {
 
 
 #region Collision Script
-
-
 function move_and_slide() {
 	#region Jumpthrough Slopes (attempt)
-	var _list = ds_list_create();
-	var _jumpthrough = collision_rectangle(bbox_left, bbox_bottom, bbox_right, bbox_bottom+abs(vspd)+1, oJumpthrough, true, true);
-	var grounded = place_meeting(x, y+1, oBlock) || (place_meeting(x, y+1, _jumpthrough) && !place_meeting(x, y, _jumpthrough));
 	
-	var _jumpthrough_list = collision_rectangle_list(bbox_left-abs(hspd), bbox_bottom,bbox_right+abs(hspd), bbox_bottom+abs(vspd)+1, oJumpthrough, true, true, _list, false);
-	if (_jumpthrough_list) {
-		for(var i=0; i<_jumpthrough_list; i++) {
-			if (_list[| i].image_angle <> 0 && sign(_list[| i].image_angle) == hdir) {
-				var yplus = 0;
-				while place_meeting(x+(hdir)*spd, y-yplus, _list[| i]) && yplus <= abs(hspd*2) yplus++;
-				if (hspd <> 0 && !place_meeting(x+hspd, y-yplus, _list[| i])) {
-					y-=yplus;					
-				}
+	var _list = ds_list_create();
+	var _jumpthrough_list = collision_rectangle_list(bbox_left-1, bbox_bottom, bbox_right+1, bbox_bottom+abs(vspd)+1, oJumpthrough, true, true, _list, false);
+	for(var i=0; i<_jumpthrough_list; i++) {
+		if (_list[| i].image_angle <> 0 && sign(_list[| i].image_angle) == hdir) {
+			var yplus = 0;
+			while place_meeting(x+(hdir)*spd, y-yplus, _list[| i]) && yplus <= abs(hspd*1) yplus++;
+			if (!place_meeting(x+hspd, y-yplus, _list[| i])) {
+				y-=yplus;					
 			}
 		}
-		
 	}
-	ds_list_clear(_list);
 	ds_list_destroy(_list);
 	#endregion
 	
@@ -349,22 +341,114 @@ function move_and_slide() {
 			y -= yplus;
 		}
 	}
+	
+	// Go down slopes
+	var _colliders = [oBlock, oJumpthrough];
+	var _subpixel = 1;
+	downJumpthroughFloor = noone;
+	if (grounded && vspd >= 0 && !place_meeting(x+hspd_final, y+1, _colliders) && place_meeting(x+hspd_final, y+abs(hspd_final)+1, _colliders)) {
+		downJumpthroughFloor = checkJumpthrough(x+hspd, y+abs(hspd_final)+1);
+		if (!instance_exists(downJumpthroughFloor)) {// || (instance_exists(downJumpthroughFloor) && downJumpthroughFloor.image_angle != 0)) {
+			while !(place_meeting(x+hspd, y+_subpixel, _colliders)) y+=_subpixel;
+		}
+	}
 	x += hspd_final;
 	#endregion
-		
-	// Descer da rampa
-	if (grounded) && (place_meeting(x, y+abs(hspd)+1, [oBlock, _jumpthrough]) && !place_meeting(x, y, [oBlock, _jumpthrough])) && (vspd >= 0) {
-		vspd += abs(hspd)+1;
-	}
-		
+	
 	#region Vertical Collision	
-	if (vspd <> 0 && place_meeting(x, y+vspd, oBlock)) 
-	|| (_jumpthrough != noone && vspd >= 0 && place_meeting(x, y+abs(vspd), _jumpthrough) && !place_meeting(x, y, _jumpthrough)) {
-		y = round(y);
-		while !(place_meeting(x, y+sign(vspd), [oBlock, _jumpthrough])) y+=sign(vspd);
+	// Upwards
+	var _subpixel = 0.5;
+	if (vspd < 0 && place_meeting(x, y+vspd, oBlock)) {
+		while(abs(vspd) > 0.1) {
+			vspd *= 0.5;
+			if !place_meeting(x, y+vspd, oBlock) y+=vspd;
+		}
 		vspd = 0;
 	}
+	
+	// Downwards
+	
+	var _clamp_vspd = max(0, vspd);
+	var _colliders = [oBlock, oJumpthrough];
+	var _list = ds_list_create();
+	var _collisions = instance_place_list(x, y+1+_clamp_vspd, _colliders, _list, false);
+	for (var i=0; i<_collisions; i++) {
+		var _inst = _list[| i];
+		if (_inst.object_index == oJumpthrough && _inst.image_angle <> 0 && vspd >= 0 && !place_meeting(x, y, _inst)) {
+			myFloor = _inst;
+		} else if (_inst.vspd <= vspd || instance_exists(myFloor))
+		&& (_inst.vspd > 0 || place_meeting(x, y+1+_clamp_vspd, _inst)) {
+			// Return Solid or Jumpthrough
+			if (_inst.object_index == oBlock
+			|| object_is_ancestor(_inst.object_index, oBlock)
+			|| floor(bbox_bottom) <= ceil(_inst.bbox_top - _inst.vspd)) {
+				if !(instance_exists(myFloor))
+				|| _inst.bbox_top + _inst.vspd <= myFloor.bbox_top + myFloor.vspd
+				|| _inst.bbox_top + _inst.vspd <= bbox_bottom {
+					myFloor = _inst;
+				}
+			}
+		}	
+	}
+	
+	ds_list_destroy(_list);
+	
+	if (instance_exists(downJumpthroughFloor)) myFloor = downJumpthroughFloor;
+	
+	// Reset floor variable
+	if (instance_exists(myFloor) && !place_meeting(x, y+floorMaxVspd, myFloor)) {
+		myFloor = noone;
+	}
+	
+	if (instance_exists(myFloor) && vspd >= 0) {
+		if (debug_mode) {
+			myFloor.touching = true;
+		}
+		var _subpixel = 0.5;
+		while (!place_meeting(x, y+_subpixel, myFloor) && !place_meeting(x, y, oBlock)) y+=_subpixel;
+		if (myFloor.object_index == oJumpthrough || object_is_ancestor(myFloor.object_index, oJumpthrough)) && (myFloor.image_angle == 0) {
+			while (place_meeting(x, y, myFloor)) { 
+				y -= _subpixel;
+			}
+		}
+		y = floor(y);
+		vspd = 0;
+		setGrounded(true);
+	}
 	y += vspd;
+	
+	if (instance_exists(myFloor)) {
+		hspd_add = myFloor.hspd;
+	} else {
+		setGrounded(false);
+	}
+	
+	// Snap y-coord to myFloor object
+	if (instance_exists(myFloor)) 
+	&& (myFloor.vspd != 0 
+	|| myFloor.object_index == oMovePlatformSolid
+	|| object_is_ancestor(myFloor.object_index, oMovePlatformSolid)
+	|| myFloor.object_index == oMovePlatformJumpthrough
+	|| object_is_ancestor(myFloor.object_index, oMovePlatformJumpthrough)) {
+		// Snap to top of floor
+		if (!place_meeting(x, myFloor.bbox_top, oBlock))
+		&& (myFloor.bbox_top >= bbox_bottom-floorMaxVspd) {
+			y = myFloor.bbox_top + y - bbox_bottom;
+		}
+		
+		// Prevent getting crushed
+		if (myFloor.vspd < 0 && place_meeting(x, y+myFloor.vspd, oBlock)) {
+			if (myFloor.object_index == oJumpthrough || object_is_ancestor(myFloor.object_index, oJumpthrough)) {
+				var _subpixel = 0.25;
+				while (place_meeting(x, y+myFloor.vspd, oBlock)) y+=_subpixel;
+			
+				while place_meeting(x, y, oBlock) y-=_subpixel;
+				y = round(y);
+			}
+			setGrounded(false);
+		}
+	}
+	
 	#endregion
 }
 

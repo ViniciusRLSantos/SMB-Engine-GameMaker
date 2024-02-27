@@ -1,3 +1,8 @@
+
+if (debug_mode) {
+	draw_text(x, y+12, script_get_name(state) + "\n" + string(grounded));
+}
+
 if (state != player_death) {
 	switch(carry) {
 		case CARRY.GREENSHELL:
