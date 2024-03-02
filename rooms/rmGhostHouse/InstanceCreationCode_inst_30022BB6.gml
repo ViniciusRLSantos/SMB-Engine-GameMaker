@@ -1,3 +1,4 @@
+/*
 points = [
 	[xstart, ystart],
 	[xstart+16*10, ystart],

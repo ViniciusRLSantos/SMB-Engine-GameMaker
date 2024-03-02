@@ -7,21 +7,7 @@ function FreeMoveLoop() {
 	dir = arctan2(_dist_y, _dist_x);
 	hspd = cos(dir)*spd;
 	vspd = sin(dir)*spd;
-	/*
-	if instance_exists(oPlayer) {
-		with (oPlayer) {
-			if (place_meeting(x, y+abs(other.vspd)+1, other) && !place_meeting(x, y, other)) {
-				hspd_add = other.hspd;
-				y += other.vspd;
-				
-			}
-			
-			if (place_meeting(x-other.hspd, y, other) && !place_meeting(x, y, other)) {
-				x += other.hspd*other.is_solid;
-			}
-		}
-	}
-	*/
+	
 	if point_distance(x, y, points[_target_point][0], points[_target_point][1]) > spd {
 		x += hspd;
 		y += vspd;
@@ -41,24 +27,7 @@ function FreeMoveReturn() {
 	dir = arctan2(_dist_y, _dist_x);
 	hspd = cos(dir)*spd;
 	vspd = sin(dir)*spd;
-	/*
-	if instance_exists(oPlayer) {
-		with (oPlayer) {
-			if (place_meeting(x, y+abs(other.vspd)+1, other) && !place_meeting(x, y, other)) {
-				hspd_add = other.hspd;
-				//x += other.hspd;
-				y += other.vspd;
-				
-			}
-			
-			
-			if (place_meeting(x-other.hspd, y, other) && !place_meeting(x, y, other)) {
-				x += other.hspd*other.is_solid;
-			}
-			
-		}
-	}
-	*/
+	
 	if point_distance(x, y, points[_target_point][0], points[_target_point][1]) > spd {
 		x += hspd;
 		y += vspd;
@@ -68,10 +37,8 @@ function FreeMoveReturn() {
 		target++;
 		if (target >= array_length(points)) {
 			
-			//show_debug_message(points);
 			points = array_reverse(points);
 			target = 0;
-			//show_debug_message(points);
 		}
 		
 	}
@@ -88,20 +55,7 @@ function WaitForPlayer() {
 	dir = arctan2(_dist_y, _dist_x);
 	hspd = cos(dir)*spd;
 	vspd = sin(dir)*spd;
-	/*
-	if instance_exists(oPlayer) {
-		with (oPlayer) {
-			if (place_meeting(x, y+abs(other.vspd)+1, other) && !place_meeting(x, y, other)) {
-				hspd_add = other.hspd;
-				//x += other.hspd;
-				y += other.vspd;
-			}
-			if (place_meeting(x-other.hspd, y, other) && !place_meeting(x, y, other)) {
-				x += other.hspd*other.is_solid;
-			}
-		}
-	}
-	*/
+	
 	if point_distance(x, y, points[_target_point][0], points[_target_point][1]) > spd {
 		x += hspd;
 		y += vspd;
@@ -121,20 +75,11 @@ function WaitForPlayer() {
 function FallDown() {
 	hspd = 0;
 	vspd = min(16, vspd + GRAVITY);
-	/*
-	if instance_exists(oPlayer) {
-		with (oPlayer) {
-			if (place_meeting(x, y+abs(other.vspd)+1, other) && 
-				!place_meeting(x, y, other) &&
-				!place_meeting(x, y+abs(other.vspd), oBlock)) {
-				y += other.vspd;
-				
-			}
-		}
-	}
-	*/
+	
 	if !in_view_y(sprite_height) {
 		if (debug_mode) {
+			hspd = 0;
+			vspd = 0;
 			can_move = false;
 			activated = false;
 			mode = WaitForPlayer;

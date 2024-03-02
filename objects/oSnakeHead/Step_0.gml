@@ -1,10 +1,12 @@
+// Inherit the parent event
+event_inherited();
+
+
 if (move) {
 	if (in_view_x() && in_view_y()) {
 		if !(audio_is_playing(sndEngine)) audio_play_sound(sndEngine, 10, 0, 0.5, 0, 1.1);
 	}
-	
-	
-	
+		
 	var _len = array_length(points);
 	var _target_point = target % _len;
 	
@@ -13,7 +15,7 @@ if (move) {
 	dir = arctan2(_dist_y, _dist_x);
 	hspd = cos(dir)*spd;
 	vspd = sin(dir)*spd;
-	
+
 	if instance_exists(oPlayer) {
 		with (oPlayer) {
 			if ((place_meeting(x-other.hspd, y, other)) && !place_meeting(x, y, other)) {
@@ -30,11 +32,11 @@ if (move) {
 			
 		}
 	}
-	
+
 	if point_distance(x, y, points[_target_point][0], points[_target_point][1]) > spd {
 		x += hspd;
 		y += vspd;
-		if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, oSnakeMiddle, true, true)) {
+		if (!collision_rectangle(bbox_left, bbox_top, bbox_right, bbox_bottom, [oSnakeMiddle, oSnakeEnd], true, true)) {
 			instance_create_depth(x, y, depth-1, oSnakeMiddle);
 		}
 		var _len = 16*length/spd - 1;
@@ -60,12 +62,5 @@ if (move) {
 		}
 		recorded_positions[0] = [x, y];
 		recorded_direction[0] = dir;
-	}
-}
-
-if (place_meeting(x, y-1, oPlayer)) {
-	if !(activated) {
-		activated = true;
-		alarm[0] = room_speed;
 	}
 }

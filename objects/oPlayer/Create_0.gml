@@ -58,6 +58,7 @@ powerUp = noone;
 
 hit = false;
 myFloor = noone;
+moveEarly = false;
 downJumpthroughFloor = noone;
 myFloorhspd = 0;
 floorMaxVspd = TERMINAL_VELOCITY;

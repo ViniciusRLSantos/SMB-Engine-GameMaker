@@ -1,6 +1,8 @@
 #region General Mario States
 function player_ground() {
 	get_inputs();
+	
+	collide_with_moving_solids();
 	#region Movement
 	move = kRight - kLeft;
 	
@@ -21,6 +23,7 @@ function player_ground() {
 				part_system_layer(_p, "SkidParticle");
 				part_system_position(_p, x, y);
 			}
+			spd = approach(spd, 2, P_DECREASE_FAST);
 		} else {
 			if abs(hspd) == maxspd {
 				running = true;
@@ -30,6 +33,7 @@ function player_ground() {
 		}
 		hspd = approach(hspd, spd*move, acc_g);
 	} else {
+		spd = approach(spd, 2, P_DECREASE_FAST);
 		hspd = approach(hspd, 0, fric_g);
 		running = false;
 	}
@@ -82,6 +86,9 @@ function player_ground() {
 
 function player_air() {
 	get_inputs();
+	
+	collide_with_moving_solids();
+	
 	#region Movement
 	//spd = minspd*(!kRun) + maxspd*kRun;
 	move = kRight - kLeft;
@@ -91,6 +98,7 @@ function player_air() {
 	} else {
 		hspd = approach(hspd, 0, fric_a);
 	}
+	if (abs(hspd) < 0.1) spd = approach(spd, minspd, P_DECREASE_ON_WALL)
 	
 	
 	if (vspd < 0) {
@@ -246,24 +254,43 @@ function ApplyPlayerSprites() {
 		
 		if (grounded && kick_frames <= 0 && vspd >= 0) {
 			if (move != 0) {
-				if (move <> sign(hspd)) {
+				if (move <> sign(hspd) && abs(hspd) > 0.1) {
 					sprite_index = sprite.turn;
-				} else if (abs(hspd) > 0) {
+				} else if (abs(hspd) > 0.1) {
+					image_speed = abs(hspd)/minspd;
+					
+					if (!running) {
+						sprite_index = sprite.walk;
+					} else {
+						if (!audio_is_playing(sndRun))audio_play_sound(sndRun, 10, 0);
+						sprite_index = sprite.run;
+					}
+				} else {
+					if (running) running = false;
+					sprite_index = sprite.idle;
+				}
+				//show_debug_message($"hspd: {hspd}")
+			} else {
+				if (abs(hspd) == 0) sprite_index = sprite.idle;
+				else {
 					image_speed = abs(hspd)/minspd;
 					if !(running) {
 						sprite_index = sprite.walk;
 					} else {
+						if (!audio_is_playing(sndRun))audio_play_sound(sndRun, 10, 0);
 						sprite_index = sprite.run;
 					}
 				}
 			}
 			
-			if (abs(hspd) == 0) sprite_index = sprite.idle;
+			
 		} else if (kick_frames <= 0) {
-			if !(running) 
+			if !(running) {
 				sprite_index = sprite.jump;
-			else
+			} else {
+				if (!audio_is_playing(sndRun))audio_play_sound(sndRun, 10, 0);
 				sprite_index = sprite.runjump;
+			}
 		}
 	} else {
 		// var _jumpthrough = collision_rectangle(bbox_left, y+abs(vspd)+1,bbox_right, y, oJumpthrough, true, true);
@@ -304,8 +331,87 @@ function ApplyPlayerSprites() {
 
 
 #region Collision Script
+
+function collide_with_moving_solids() {
+	var _rightWall = noone;
+	var _leftWall = noone;
+	var _bottomWall = noone;
+	var _topWall = noone;
+	var _list = ds_list_create();
+	var _collisions = instance_place_list(x, y, oMovePlatformSolid, _list, false);
+	
+	for (var i=0; i<_collisions; i++) {
+		var _inst = _list[| i];
+		
+		// Colliding with right side of moving platform
+		if _inst.bbox_left - _inst.hspd >= bbox_right-1 {
+			if (!instance_exists(_rightWall) || _inst.bbox_left < _rightWall.bbox_left) {
+				_rightWall = _inst;
+			}
+		}
+		
+		// Colliding with left side of moving platform
+		if (_inst.bbox_right - _inst.hspd <= bbox_left+1) {
+			if (!instance_exists(_leftWall) || _inst.bbox_right > _leftWall.bbox_right) {
+				_leftWall = _inst;
+			}
+		}
+		
+		// Colliding with bottom side of moving platform
+		if (_inst.bbox_top - _inst.vspd >= bbox_bottom-1) {
+			if (!instance_exists(_bottomWall) || _inst.bbox_top < _bottomWall.bbox_top) {
+				_bottomWall = _inst;
+			}
+		}
+		
+		// Collising with top side of moving platform
+		if (_inst.bbox_bottom - _inst.vspd <= bbox_top+1) {
+			if (!instance_exists(_topWall) || _inst.bbox_bottom > _topWall.bbox_bottom) {
+				_topWall = _inst;
+			}
+		}
+	}
+	ds_list_destroy(_list);
+	
+	// Snap to moving platform
+	if (instance_exists(_rightWall)) {
+		var _rightDist = bbox_right - x;
+		x = _rightWall.bbox_left - _rightDist;
+	}
+	
+	if (instance_exists(_leftWall)) {
+		var _leftDist = x - bbox_left;
+		x = _leftWall.bbox_right + _leftDist;
+	}
+	
+	if (instance_exists(_bottomWall)) {
+		var _bottomDist = bbox_bottom - y;
+		y = _bottomWall.bbox_top - _bottomDist;
+	}
+	
+	if (instance_exists(_topWall)) {
+		var _upDist = y - bbox_top;
+		var _targetY = _topWall.bbox_bottom + _upDist;
+		show_debug_message("TOP DETECTED")
+		if (!place_meeting(x, _targetY, oBlock)) {
+			y = _targetY;
+			
+		}
+	}
+	/*
+	// Stick to your platform
+	moveEarly = false;
+	if (instance_exists(myFloor) && myFloor.hspd != 0 && !place_meeting(x, y+floorMaxVspd+1, myFloor)) {
+		if (!place_meeting(x+myFloor.hspd, y, myFloor)) {
+			x += myFloor.hspd;
+			moveEarly = true;
+		}
+	}
+	*/
+}
+
 function move_and_slide() {
-	#region Jumpthrough Slopes (attempt)
+	#region Jumpthrough Slopes
 	
 	var _list = ds_list_create();
 	var _jumpthrough_list = collision_rectangle_list(bbox_left-1, bbox_bottom, bbox_right+1, bbox_bottom+abs(vspd)+1, oJumpthrough, true, true, _list, false);
@@ -323,7 +429,6 @@ function move_and_slide() {
 	
 	#region Horizontal Collision
 	var hspd_final = hspd + hspd_add;
-	//var _Hpixel_check = sign(hspd_final);
 	hspd_add = 0;
 	
 	if (place_meeting(x+hspd_final, y, oBlock)) {
@@ -356,18 +461,17 @@ function move_and_slide() {
 	#endregion
 	
 	#region Vertical Collision	
-	// Upwards
+	// Upwards Collision
 	var _subpixel = 0.5;
 	if (vspd < 0 && place_meeting(x, y+vspd, oBlock)) {
-		while(abs(vspd) > 0.1) {
+		while (abs(vspd) > 0.1) {
 			vspd *= 0.5;
-			if !place_meeting(x, y+vspd, oBlock) y+=vspd;
+			if (!place_meeting(x, y+vspd, oBlock)) y+=vspd;
 		}
 		vspd = 0;
 	}
 	
-	// Downwards
-	
+	// Downwards Collision
 	var _clamp_vspd = max(0, vspd);
 	var _colliders = [oBlock, oJumpthrough];
 	var _list = ds_list_create();
@@ -417,8 +521,9 @@ function move_and_slide() {
 	}
 	y += vspd;
 	
+	
 	if (instance_exists(myFloor)) {
-		hspd_add = myFloor.hspd;
+		if (!moveEarly && (myFloor.object_index != oSnakeHead && myFloor.object_index != oSnakeEnd)) hspd_add = myFloor.hspd;
 	} else {
 		setGrounded(false);
 	}
@@ -436,17 +541,32 @@ function move_and_slide() {
 			y = myFloor.bbox_top + y - bbox_bottom;
 		}
 		
-		// Prevent getting crushed
-		if (myFloor.vspd < 0 && place_meeting(x, y+myFloor.vspd, oBlock)) {
-			if (myFloor.object_index == oJumpthrough || object_is_ancestor(myFloor.object_index, oJumpthrough)) {
-				var _subpixel = 0.25;
-				while (place_meeting(x, y+myFloor.vspd, oBlock)) y+=_subpixel;
-			
-				while place_meeting(x, y, oBlock) y-=_subpixel;
-				y = round(y);
-			}
-			setGrounded(false);
+						/*
+						// Pushed down by jumpthrough
+						if (myFloor.vspd < 0 && place_meeting(x, y+myFloor.vspd, oBlock)) {
+							if (myFloor.object_index == oJumpthrough || object_is_ancestor(myFloor.object_index, oJumpthrough)) {
+								var _subpixel = 0.25;
+								while (place_meeting(x, y+myFloor.vspd, oBlock)) y+=_subpixel;
+							
+								while place_meeting(x, y, oBlock) y-=_subpixel;
+								y = round(y);
+							}
+							setGrounded(false);
+						}
+						*/
+	}
+	// Push through jumpthrough by moving solid platform
+	if (instance_exists(myFloor))
+	&& (myFloor.object_index == oJumpthrough || object_is_ancestor(myFloor.object_index, oJumpthrough))
+	&& (place_meeting(x, y, oBlock)) {
+		var _maxPushDist = 10;
+		var _pushDist = 0;
+		var _starty = y;
+		while (place_meeting(x, y, oBlock) && _pushDist <= _maxPushDist) {
+			y++;
+			_pushDist++;
 		}
+		setGrounded(false);
 	}
 	
 	#endregion

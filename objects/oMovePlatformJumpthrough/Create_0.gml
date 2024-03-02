@@ -1,4 +1,4 @@
-
+touching = false;
 points = [];
 if (path_exists(path)) {
 	//array_push(points, [xstart, ystart]);

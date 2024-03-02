@@ -4,12 +4,13 @@ switch(mode) {
 		for (var i=0; i<_len; i++) {
 			var p1 = i % _len;
 			var p2 = (i+1) % _len;
-	
-			draw_line(
+			
+			draw_line_width(
 				points[p1][0],
 				points[p1][1],
 				points[p2][0],
-				points[p2][1]
+				points[p2][1],
+				0.75
 			);
 		}
 	break;
@@ -18,11 +19,12 @@ switch(mode) {
 			var p1 = i % _len;
 			var p2 = (i+1) % _len;
 	
-			draw_line(
+			draw_line_width(
 				points[p1][0],
 				points[p1][1],
 				points[p2][0],
-				points[p2][1]
+				points[p2][1],
+				0.75
 			);
 		}
 	break;

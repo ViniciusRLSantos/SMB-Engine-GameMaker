@@ -12,3 +12,5 @@ spawnItem = function() {
 		audio_play_sound(sndItemSprout, 10, 0);
 	}
 }
+
+show_debug_message($"Sprite: {sprite_get_name(sprite)}")

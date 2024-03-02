@@ -1,6 +1,12 @@
 
 if (debug_mode) {
-	draw_text(x, y+12, script_get_name(state) + "\n" + string(grounded));
+	draw_set_halign(fa_center);
+	draw_set_valign(fa_bottom);
+	draw_text(x, y-sprite_height-1, 
+	$"state: {script_get_name(state)}\nspd: {spd}\nhspd: {hspd}\nvspd: {vspd}"
+	);
+	draw_set_halign(fa_left);
+	draw_set_valign(fa_top);
 }
 
 if (state != player_death) {

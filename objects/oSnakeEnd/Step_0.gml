@@ -1,3 +1,6 @@
+// Inherit the parent event
+event_inherited();
+
 if (owner.move) {
 	
 	hspd = owner.recorded_positions[step-1][0] - owner.recorded_positions[step][0];
@@ -5,7 +8,7 @@ if (owner.move) {
 	if (hspd != 0 || vspd != 0) dir = darctan2(vspd, hspd);
 	var _len = sprite_width/2;
 	var _body = instance_position(x-lengthdir_x(_len, -dir), y-lengthdir_y(_len, -dir), oSnakeMiddle);
-	if ((hspd != 0 || vspd != 0) &&_body != noone) {
+	if ((hspd != 0 || vspd != 0) && _body != noone) {
         with(_body) {
             instance_destroy();
         }
@@ -21,7 +24,7 @@ if (owner.move) {
 			}
 			
 			if (place_meeting(x, y+abs(other.vspd), other) && !place_meeting(x, y, other)) {
-				y+=other.vspd;
+				y = other.bbox_top + y - bbox_bottom;
 			}
 		}
 	}
@@ -30,3 +33,4 @@ if (owner.move) {
 	y+=vspd;
 	
 }
+

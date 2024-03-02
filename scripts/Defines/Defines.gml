@@ -13,8 +13,8 @@
 
 #macro P_DECREASE_ON_WALL	0.0225
 #macro P_DECREASE			0.020
-#macro P_DECREASE_FAST		0.065
-#macro P_INCREASE			0.0175
+#macro P_DECREASE_FAST		0.075
+#macro P_INCREASE			0.0125
 
 #macro CELL_SIZE 16
 

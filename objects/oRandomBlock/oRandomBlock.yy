@@ -2,21 +2,19 @@
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
   "name": "oRandomBlock",
-  "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
-  ],
+  "eventList": [],
   "managed": true,
-  "overriddenProperties": [],
+  "overriddenProperties": [
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"par_brick","path":"objects/par_brick/par_brick.yy",},"propertyId":{"name":"sprite","path":"objects/par_brick/par_brick.yy",},"value":"sBlockRandom",},
+    {"resourceType":"GMOverriddenProperty","resourceVersion":"1.0","name":"","objectId":{"name":"par_brick","path":"objects/par_brick/par_brick.yy",},"propertyId":{"name":"sprite","path":"objects/par_brick/par_brick.yy",},"value":"sBlockRandom",},
+  ],
   "parent": {
     "name": "Special Blocks",
     "path": "folders/Objects/Special Blocks.yy",
   },
   "parentObjectId": {
-    "name": "oBlock",
-    "path": "objects/oBlock/oBlock.yy",
+    "name": "par_brick",
+    "path": "objects/par_brick/par_brick.yy",
   },
   "persistent": false,
   "physicsAngularDamping": 0.1,
@@ -31,15 +29,7 @@
   "physicsShape": 1,
   "physicsShapePoints": [],
   "physicsStartAwake": true,
-  "properties": [
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"item_to_spawn","filters":[],"listItems":[
-        "ITEM.MUSHROOM",
-        "ITEM.FIREFLOWER",
-        "ITEM.LEAF",
-        "ITEM.HAMMERSUIT",
-        "ITEM.ONEUP",
-      ],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"ITEM.FIREFLOWER","varType":6,},
-  ],
+  "properties": [],
   "solid": false,
   "spriteId": {
     "name": "sBlockRandom",

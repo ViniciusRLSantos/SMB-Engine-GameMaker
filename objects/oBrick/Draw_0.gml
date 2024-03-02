@@ -1,1 +1,0 @@
-draw_sprite(sBrick, index, x, yy);
