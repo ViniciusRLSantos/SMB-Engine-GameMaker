@@ -13,4 +13,8 @@ spawnItem = function() {
 	}
 }
 
+spawnCoin = function() {
+	if (amoun)
+}
+
 show_debug_message($"Sprite: {sprite_get_name(sprite)}")

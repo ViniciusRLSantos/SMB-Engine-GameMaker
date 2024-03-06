@@ -117,3 +117,32 @@ function BrickBreak() {
     #endregion
 
 }
+
+
+function BrickCoin() {
+    if !(instance_exists(oPlayer)) exit;
+    
+    #region Colliding with Player
+    if (oPlayer.vspd <= 0 && place_meeting(x, y+1, oPlayer) && !place_meeting(x, y, oPlayer)) {
+    	if (!bonked) {
+    		var _enemy = instance_place(x, y-1, par_enemy);
+    		if (_enemy != noone) {
+    			with(_enemy) {
+    				if state != knocked_state {
+    					state = knocked_state;
+    					vspd = -2;
+    					audio_play_sound(sndKnock, 10, 0);
+    						
+    				}
+    			}
+    		}
+    		bonked = true;
+    		audio_play_sound(sndBump, 10, 0);
+    		spawnItem();
+    		yy -= offset;
+    		sprite_index = sBlockNull;
+    	}
+    }
+    #endregion
+}
+

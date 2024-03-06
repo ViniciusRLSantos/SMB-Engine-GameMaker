@@ -1,10 +1,12 @@
 {
-  "resourceType": "GMShader",
-  "resourceVersion": "1.0",
-  "name": "shdr_tfx_circle",
-  "parent": {
-    "name": "tfx_shdr",
-    "path": "folders/Shaders/tfx_shdr.yy",
+  "$GMShader":"",
+  "%Name":"shdr_tfx_circle",
+  "name":"shdr_tfx_circle",
+  "parent":{
+    "name":"tfx_shdr",
+    "path":"folders/Shaders/tfx_shdr.yy",
   },
-  "type": 1,
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
 }

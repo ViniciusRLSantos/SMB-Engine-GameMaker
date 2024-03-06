@@ -1,15 +1,15 @@
 {
-  "resourceType": "GMObject",
-  "resourceVersion": "1.0",
-  "name": "par_brick",
+  "$GMObject": "",
+  "%Name": "par_brick",
   "eventList": [
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,},
-    {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed": true,
+  "name": "par_brick",
   "overriddenProperties": [],
   "parent": {
     "name": "Parents",
@@ -33,20 +33,22 @@
   "physicsShapePoints": [],
   "physicsStartAwake": true,
   "properties": [
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"item_to_spawn","filters":[],"listItems":[
+    {"varType":6,"value":"ITEM.MUSHROOM","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
         "ITEM.MUSHROOM",
         "ITEM.FIREFLOWER",
         "ITEM.HAMMERSUIT",
         "ITEM.ONEUP",
         "noone",
-      ],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"ITEM.MUSHROOM","varType":6,},
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"coins","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"0","varType":1,},
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"mode","filters":[],"listItems":[
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"item_to_spawn","resourceType":"GMObjectProperty","%Name":"item_to_spawn","$GMObjectProperty":"",},
+    {"varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"coins","resourceType":"GMObjectProperty","%Name":"coins","$GMObjectProperty":"",},
+    {"varType":6,"value":"BrickSpawnItem","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[
         "BrickSpawnItem",
         "BrickBreak",
-      ],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"BrickSpawnItem","varType":6,},
-    {"resourceType":"GMObjectProperty","resourceVersion":"1.0","name":"sprite","filters":[],"listItems":[],"multiselect":false,"rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"value":"noone","varType":5,},
+      ],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"mode","resourceType":"GMObjectProperty","%Name":"mode","$GMObjectProperty":"",},
+    {"varType":5,"value":"noone","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"sprite","resourceType":"GMObjectProperty","%Name":"sprite","$GMObjectProperty":"",},
   ],
+  "resourceType": "GMObject",
+  "resourceVersion": "2.0",
   "solid": false,
   "spriteId": {
     "name": "sBlock",

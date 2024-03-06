@@ -398,7 +398,7 @@ function collide_with_moving_solids() {
 			
 		}
 	}
-	/*
+	
 	// Stick to your platform
 	moveEarly = false;
 	if (instance_exists(myFloor) && myFloor.hspd != 0 && !place_meeting(x, y+floorMaxVspd+1, myFloor)) {
@@ -407,7 +407,7 @@ function collide_with_moving_solids() {
 			moveEarly = true;
 		}
 	}
-	*/
+	
 }
 
 function move_and_slide() {
@@ -508,7 +508,8 @@ function move_and_slide() {
 		if (debug_mode) {
 			myFloor.touching = true;
 		}
-		var _subpixel = 0.5;
+		y = floor(y);
+		var _subpixel = 1;
 		while (!place_meeting(x, y+_subpixel, myFloor) && !place_meeting(x, y, oBlock)) y+=_subpixel;
 		if (myFloor.object_index == oJumpthrough || object_is_ancestor(myFloor.object_index, oJumpthrough)) && (myFloor.image_angle == 0) {
 			while (place_meeting(x, y, myFloor)) { 
@@ -540,20 +541,6 @@ function move_and_slide() {
 		&& (myFloor.bbox_top >= bbox_bottom-floorMaxVspd) {
 			y = myFloor.bbox_top + y - bbox_bottom;
 		}
-		
-						/*
-						// Pushed down by jumpthrough
-						if (myFloor.vspd < 0 && place_meeting(x, y+myFloor.vspd, oBlock)) {
-							if (myFloor.object_index == oJumpthrough || object_is_ancestor(myFloor.object_index, oJumpthrough)) {
-								var _subpixel = 0.25;
-								while (place_meeting(x, y+myFloor.vspd, oBlock)) y+=_subpixel;
-							
-								while place_meeting(x, y, oBlock) y-=_subpixel;
-								y = round(y);
-							}
-							setGrounded(false);
-						}
-						*/
 	}
 	// Push through jumpthrough by moving solid platform
 	if (instance_exists(myFloor))

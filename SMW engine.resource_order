@@ -1,5 +1,5 @@
 {
-  "FolderOrderSettings": [
+  "FolderOrderSettings":[
     {"name":"Animation Curves","order":11,"path":"folders/Animation Curves.yy",},
     {"name":"Extensions","order":13,"path":"folders/Extensions.yy",},
     {"name":"Fonts","order":6,"path":"folders/Fonts.yy",},
@@ -44,7 +44,7 @@
     {"name":"Tile Sets","order":1,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":7,"path":"folders/Timelines.yy",},
   ],
-  "ResourceOrderSettings": [
+  "ResourceOrderSettings":[
     {"name":"sPlatform2","order":1,"path":"sprites/sPlatform2/sPlatform2.yy",},
     {"name":"sLevel","order":18,"path":"sprites/sLevel/sLevel.yy",},
     {"name":"sBigMarioFall","order":1,"path":"sprites/sBigMarioFall/sBigMarioFall.yy",},
@@ -144,6 +144,7 @@
     {"name":"rmTestMovingPlatforms","order":5,"path":"rooms/rmTestMovingPlatforms/rmTestMovingPlatforms.yy",},
     {"name":"sHammerMarioWalk","order":1,"path":"sprites/sHammerMarioWalk/sHammerMarioWalk.yy",},
     {"name":"sBlock","order":10,"path":"sprites/sBlock/sBlock.yy",},
+    {"name":"sndStomp","order":22,"path":"sounds/sndStomp/sndStomp.yy",},
     {"name":"partRunning","order":2,"path":"particles/partRunning/partRunning.yy",},
     {"name":"par_brick","order":5,"path":"objects/par_brick/par_brick.yy",},
     {"name":"sndPipe","order":18,"path":"sounds/sndPipe/sndPipe.yy",},
