@@ -14,7 +14,21 @@ spawnItem = function() {
 }
 
 spawnCoin = function() {
-	if (amoun)
+	if (coins > 1) {
+		yy -= offset;
+		alarm[0] = 5;
+		global.coins++;
+		coins--;
+		audio_play_sound(sndCoin, 10, 0);
+		instance_create_depth(x, y, depth + 1, oCoinSprout);
+	} else {
+		yy -= offset;
+		global.coins++;
+		coins--;
+		audio_play_sound(sndCoin, 10, 0);
+		instance_create_depth(x, y, depth + 1, oCoinSprout);
+		sprite_index = sBlockNull;
+	}
 }
 
 show_debug_message($"Sprite: {sprite_get_name(sprite)}")

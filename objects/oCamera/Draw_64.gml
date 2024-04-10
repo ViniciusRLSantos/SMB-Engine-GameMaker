@@ -1,3 +1,4 @@
+
 gpu_set_blendenable(false);
 var cam = view_camera[0];
 var ax = camera_get_view_x(cam) - x + game_width*zoom/2;

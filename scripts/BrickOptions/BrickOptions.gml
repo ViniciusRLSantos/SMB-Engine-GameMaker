@@ -137,10 +137,7 @@ function BrickCoin() {
     			}
     		}
     		bonked = true;
-    		audio_play_sound(sndBump, 10, 0);
-    		spawnItem();
-    		yy -= offset;
-    		sprite_index = sBlockNull;
+    		spawnCoin();
     	}
     }
     #endregion

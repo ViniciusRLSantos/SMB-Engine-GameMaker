@@ -1,4 +1,4 @@
-
+/*
 if (debug_mode) {
 	draw_set_halign(fa_center);
 	draw_set_valign(fa_bottom);
@@ -8,7 +8,7 @@ if (debug_mode) {
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 }
-
+*/
 if (state != player_death) {
 	switch(carry) {
 		case CARRY.GREENSHELL:

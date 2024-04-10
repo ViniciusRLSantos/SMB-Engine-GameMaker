@@ -7,6 +7,15 @@ view_surface_id[0] = global.view_surf;
 var cam = view_camera[0];
 var camX = x-game_width*zoom*0.5;
 var camY = y-game_height*zoom*0.5;
+/*
+if instance_exists(target) {
+	var camX = x-game_width*zoom*0.5;
+	var camY = y-game_height*zoom*0.5;
+} else {
+	var camX = 0;
+	var camY = 0;
+}
+*/
 //camX = clamp(camX, 0, room_width-(game_width*zoom));
 //camY = clamp(camY, 0, room_height-(game_height*zoom));
 

@@ -11,6 +11,7 @@
     {"name":"inst_22313D59","path":"rooms/rmMap/rmMap.yy",},
     {"name":"inst_71F1DE1D","path":"rooms/rmMap/rmMap.yy",},
     {"name":"inst_2A2752FA","path":"rooms/rmMap/rmMap.yy",},
+    {"name":"inst_1512157","path":"rooms/rmMap/rmMap.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -18,7 +19,7 @@
         {"$GMRInstance":"","%Name":"inst_D8E4D41","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_D8E4D41","objectId":{"name":"oTestCell","path":"objects/oTestCell/oTestCell.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
         {"$GMRInstance":"","%Name":"inst_1C748E8F","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1C748E8F","objectId":{"name":"oMarioMap","path":"objects/oMarioMap/oMarioMap.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":96.0,},
         {"$GMRInstance":"","%Name":"inst_22313D59","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_22313D59","objectId":{"name":"oLevelSelect","path":"objects/oLevelSelect/oLevelSelect.yy",},"properties":[
-            {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"oLevelSelect","path":"objects/oLevelSelect/oLevelSelect.yy",},"propertyId":{"name":"level","path":"objects/oLevelSelect/oLevelSelect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"rmOneOne3224",},
+            {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"oLevelSelect","path":"objects/oLevelSelect/oLevelSelect.yy",},"propertyId":{"name":"level","path":"objects/oLevelSelect/oLevelSelect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Room1",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":160.0,"y":80.0,},
         {"$GMRInstance":"","%Name":"inst_71F1DE1D","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_71F1DE1D","objectId":{"name":"oLevelSelect","path":"objects/oLevelSelect/oLevelSelect.yy",},"properties":[
             {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"oLevelSelect","path":"objects/oLevelSelect/oLevelSelect.yy",},"propertyId":{"name":"level","path":"objects/oLevelSelect/oLevelSelect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"rmGhostHouse",},
@@ -26,6 +27,9 @@
         {"$GMRInstance":"","%Name":"inst_2A2752FA","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2A2752FA","objectId":{"name":"oLevelSelect","path":"objects/oLevelSelect/oLevelSelect.yy",},"properties":[
             {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"oLevelSelect","path":"objects/oLevelSelect/oLevelSelect.yy",},"propertyId":{"name":"level","path":"objects/oLevelSelect/oLevelSelect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"Room1",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":208.0,"y":128.0,},
+        {"$GMRInstance":"","%Name":"inst_1512157","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1512157","objectId":{"name":"oLevelSelect","path":"objects/oLevelSelect/oLevelSelect.yy",},"properties":[
+            {"$GMOverriddenProperty":"","%Name":"","name":"","objectId":{"name":"oLevelSelect","path":"objects/oLevelSelect/oLevelSelect.yy",},"propertyId":{"name":"level","path":"objects/oLevelSelect/oLevelSelect.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"rmTestMovingPlatforms",},
+          ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":256.0,"y":128.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"PathDefinition","depth":100,"effectEnabled":true,"effectType":"none","gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"PathDefinition","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":17,"SerialiseWidth":30,"TileCompressedData":[
           -4,-2147483648,-2,0,-27,-2147483648,-4,0,-23,-2147483648,1,0,-3,-2147483648,-6,0,13,2,1,1,2,1,1,2,1,
